@@ -1,594 +1,417 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:snap_meal/api/google_search.dart';
+import 'package:snap_meal/api/groq.dart';
+import 'package:snap_meal/screens/MealDetailPage.dart';
+
 class MealPlanningPage extends StatefulWidget {
-	const MealPlanningPage({super.key});
-	@override
-		MealPlanningPageState createState() => MealPlanningPageState();
-	}
+  const MealPlanningPage({super.key});
+  @override
+  MealPlanningPageState createState() => MealPlanningPageState();
+}
+
 class MealPlanningPageState extends State<MealPlanningPage> {
-	String textField1 = '';
-	@override
-	Widget build(BuildContext context) {
-		return Scaffold(
-			body: SafeArea(
-				child: Container(
-					constraints: const BoxConstraints.expand(),
-					color: Color(0xFFFFFFFF),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: [
-							Expanded(
-								child: Container(
-									decoration: BoxDecoration(
-										border: Border.all(
-											color: Color(0xFFCED4DA),
-											width: 2,
-										),
-										borderRadius: BorderRadius.circular(8),
-										color: Color(0xFFFFFFFF),
-									),
-									width: double.infinity,
-									height: double.infinity,
-									child: SingleChildScrollView(
-										child: Column(
-											crossAxisAlignment: CrossAxisAlignment.start,
-											children: [
-												IntrinsicHeight(
-													child: Container(
-														width: double.infinity,
-														child: Column(
-															crossAxisAlignment: CrossAxisAlignment.start,
-															children: [
-																IntrinsicHeight(
-																	child: Container(
-																		color: Color(0xFFFFFFFF),
-																		margin: const EdgeInsets.only( bottom: 9),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						padding: const EdgeInsets.only( top: 17, bottom: 17, left: 16, right: 16),
-																						width: double.infinity,
-																						child: Row(
-																							children: [
-																								Container(
-																									width: 15,
-																									height: 18,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1eab8044-f314-4d5e-9bf5-d2413823f844",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																								Expanded(
-																									child: Container(
-																										width: double.infinity,
-																										child: SizedBox(),
-																									),
-																								),
-																								Container(
-																									margin: const EdgeInsets.only( right: 124),
-																									child: Text(
-																										"Meal Plan",
-																										style: TextStyle(
-																											color: Color(0xFF000000),
-																											fontSize: 18,
-																										),
-																									),
-																								),
-																								Container(
-																									width: 15,
-																									height: 18,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/003ce8c5-f5c3-4a02-9dba-88dd53b51e54",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		padding: const EdgeInsets.only( top: 29, bottom: 29, left: 16, right: 16),
-																		margin: const EdgeInsets.only( bottom: 28),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				Container(
-																					margin: const EdgeInsets.only( bottom: 21),
-																					child: Text(
-																						"Today\'s Meals",
-																						style: TextStyle(
-																							color: Color(0xFF000000),
-																							fontSize: 18,
-																						),
-																					),
-																				),
-																				IntrinsicHeight(
-																					child: Container(
-																						width: double.infinity,
-																						child: Column(
-																							crossAxisAlignment: CrossAxisAlignment.start,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.all(16),
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.only( top: 3, bottom: 3, left: 1, right: 1),
-																														margin: const EdgeInsets.only( bottom: 12),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Expanded(
-																																	child: Container(
-																																		margin: const EdgeInsets.only( right: 4),
-																																		width: double.infinity,
-																																		child: Text(
-																																			"Breakfast",
-																																			style: TextStyle(
-																																				color: Color(0xFF000000),
-																																				fontSize: 16,
-																																			),
-																																		),
-																																	),
-																																),
-																																Text(
-																																	"8:00 AM",
-																																	style: TextStyle(
-																																		color: Color(0xFF6B7280),
-																																		fontSize: 14,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												Container(
-																													padding: const EdgeInsets.only( top: 84, bottom: 84, left: 138, right: 138),
-																													margin: const EdgeInsets.only( bottom: 16),
-																													height: 192,
-																													width: double.infinity,
-																													decoration: BoxDecoration(
-																														borderRadius: BorderRadius.circular(8),
-																														image: DecorationImage(
-																															image: NetworkImage("https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/169f2fff-1d9b-4c7f-872e-574665168555"),
-																															fit: BoxFit.cover
-																														),
-																													),
-																													child: Column(
-																														crossAxisAlignment: CrossAxisAlignment.start,
-																														children: [
-																															Container(
-																																width: double.infinity,
-																																child: Text(
-																																	"IMG\n326×192",
-																																	style: TextStyle(
-																																		color: Color(0xFF999999),
-																																		fontSize: 12,
-																																	),
-																																),
-																															),
-																														]
-																													),
-																												),
-																												Container(
-																													margin: const EdgeInsets.only( bottom: 12),
-																													child: Text(
-																														"Eggs and Sausage",
-																														style: TextStyle(
-																															color: Color(0xFF000000),
-																															fontSize: 16,
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 2),
-																														margin: const EdgeInsets.only( bottom: 12),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Container(
-																																	margin: const EdgeInsets.only( right: 5),
-																																	width: 10,
-																																	height: 14,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c83d66bc-d103-44da-82a6-412074b06dbe",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																																Container(
-																																	margin: const EdgeInsets.only( right: 14),
-																																	child: Text(
-																																		"320 kcal",
-																																		style: TextStyle(
-																																			color: Color(0xFF4B5563),
-																																			fontSize: 14,
-																																		),
-																																	),
-																																),
-																																Container(
-																																	margin: const EdgeInsets.only( right: 5),
-																																	width: 17,
-																																	height: 14,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b64150cf-f0bd-40b6-b725-d88f986fae20",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																																Expanded(
-																																	child: Container(
-																																		width: double.infinity,
-																																		child: Text(
-																																			"18g protein",
-																																			style: TextStyle(
-																																				color: Color(0xFF4B5563),
-																																				fontSize: 14,
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																InkWell(
-																																	onTap: () { print('Pressed'); },
-																																	child: IntrinsicWidth(
-																																		child: IntrinsicHeight(
-																																			child: Container(
-																																				decoration: BoxDecoration(
-																																					borderRadius: BorderRadius.circular(8),
-																																					color: Color(0xFF2563EB),
-																																				),
-																																				padding: const EdgeInsets.only( top: 14, bottom: 14, left: 38, right: 38),
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						Text(
-																																							"Consumed",
-																																							style: TextStyle(
-																																								color: Color(0xFFFFFFFF),
-																																								fontSize: 16,
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.all(16),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.only( top: 4, bottom: 4, left: 1, right: 1),
-																														margin: const EdgeInsets.only( bottom: 12),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Expanded(
-																																	child: Container(
-																																		margin: const EdgeInsets.only( right: 4),
-																																		width: double.infinity,
-																																		child: Text(
-																																			"Lunch",
-																																			style: TextStyle(
-																																				color: Color(0xFF000000),
-																																				fontSize: 16,
-																																			),
-																																		),
-																																	),
-																																),
-																																Text(
-																																	"1:00 PM",
-																																	style: TextStyle(
-																																		color: Color(0xFF6B7280),
-																																		fontSize: 14,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												Container(
-																													padding: const EdgeInsets.only( top: 84, bottom: 84, left: 138, right: 138),
-																													margin: const EdgeInsets.only( bottom: 15),
-																													height: 192,
-																													width: double.infinity,
-																													decoration: BoxDecoration(
-																														borderRadius: BorderRadius.circular(8),
-																														image: DecorationImage(
-																															image: NetworkImage("https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e6c6c8b9-4021-45c0-b34f-e0e33ddcefde"),
-																															fit: BoxFit.cover
-																														),
-																													),
-																													child: Column(
-																														crossAxisAlignment: CrossAxisAlignment.start,
-																														children: [
-																															Container(
-																																width: double.infinity,
-																																child: Text(
-																																	"IMG\n326×192",
-																																	style: TextStyle(
-																																		color: Color(0xFF999999),
-																																		fontSize: 12,
-																																	),
-																																),
-																															),
-																														]
-																													),
-																												),
-																												Container(
-																													margin: const EdgeInsets.only( bottom: 13),
-																													child: Text(
-																														"Chicken Quinoa Bowl",
-																														style: TextStyle(
-																															color: Color(0xFF000000),
-																															fontSize: 16,
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 2),
-																														margin: const EdgeInsets.only( bottom: 14),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Container(
-																																	margin: const EdgeInsets.only( right: 5),
-																																	width: 10,
-																																	height: 14,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/93df6d1e-7082-4104-b9fe-7b98fc40d9ba",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																																Container(
-																																	margin: const EdgeInsets.only( right: 14),
-																																	child: Text(
-																																		"450 kcal",
-																																		style: TextStyle(
-																																			color: Color(0xFF4B5563),
-																																			fontSize: 14,
-																																		),
-																																	),
-																																),
-																																Container(
-																																	margin: const EdgeInsets.only( right: 5),
-																																	width: 17,
-																																	height: 14,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0791bf46-9b85-4773-b1ff-66647073b1bc",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																																Expanded(
-																																	child: Container(
-																																		width: double.infinity,
-																																		child: Text(
-																																			"32g protein",
-																																			style: TextStyle(
-																																				color: Color(0xFF4B5563),
-																																				fontSize: 14,
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												Container(
-																													width: 326,
-																													height: 42,
-																													child: Column(
-																														crossAxisAlignment: CrossAxisAlignment.start,
-																														children: [
-																															InkWell(
-																																onTap: () { print('Pressed'); },
-																																child: IntrinsicWidth(
-																																	child: IntrinsicHeight(
-																																		child: Container(
-																																			decoration: BoxDecoration(
-																																				borderRadius: BorderRadius.circular(8),
-																																				color: Color(0xFF2563EB),
-																																			),
-																																			padding: const EdgeInsets.only( top: 14, bottom: 14, left: 38, right: 38),
-																																			child: Column(
-																																				crossAxisAlignment: CrossAxisAlignment.start,
-																																				children: [
-																																					Text(
-																																						"Consumed",
-																																						style: TextStyle(
-																																							color: Color(0xFFFFFFFF),
-																																							fontSize: 16,
-																																						),
-																																					),
-																																				]
-																																			),
-																																		),
-																																	),
-																																),
-																															),
-																														]
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		color: Color(0xFFF9FAFB),
-																		padding: const EdgeInsets.only( left: 32, right: 32),
-																		margin: const EdgeInsets.only( bottom: 28),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						decoration: BoxDecoration(
-																							border: Border.all(
-																								color: Color(0xFFD1D5DB),
-																								width: 1,
-																							),
-																							borderRadius: BorderRadius.circular(8),
-																						),
-																						padding: const EdgeInsets.only( left: 96, right: 96),
-																						width: double.infinity,
-																						child: Row(
-																							children: [
-																								Container(
-																									margin: const EdgeInsets.only( right: 22),
-																									width: 14,
-																									height: 16,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cf939298-bb0d-4834-b858-b516c0aa7ab1",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																								Expanded(
-																									child: IntrinsicHeight(
-																										child: Container(
-																											alignment: Alignment.center,
-																											padding: const EdgeInsets.symmetric(vertical: 13),
-																											width: double.infinity,
-																											child: TextField(
-																												style: TextStyle(
-																													color: Color(0xFF000000),
-																													fontSize: 16,
-																												),
-																												onChanged: (value) { 
-																													setState(() { textField1 = value; });
-																												},
-																												decoration: InputDecoration(
-																													hintText: "Regenerate",
-																													isDense: true,
-																													contentPadding: EdgeInsets.symmetric(vertical: 0),
-																													border: InputBorder.none,
-																												),
-																											),
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		color: Color(0xFFFFFFFF),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						padding: const EdgeInsets.only( top: 12, bottom: 12, left: 57, right: 57),
-																						margin: const EdgeInsets.only( top: 1),
-																						width: double.infinity,
-																						child: Row(
-																							mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																							children: [
-																								Container(
-																									width: 22,
-																									height: 20,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4e859285-79da-4b07-a0a1-38500fab72f5",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																								Container(
-																									width: 17,
-																									height: 20,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a3c7f874-e851-4d47-9b4e-2b1f25861666",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																								Container(
-																									width: 17,
-																									height: 20,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/560eba65-cc43-4d98-9d02-818fcb6dae62",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																								Container(
-																									width: 17,
-																									height: 20,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/451676b7-3c5a-4201-abec-40cfaa548093",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-															]
-														),
-													),
-												),
-											],
-										)
-									),
-								),
-							),
-						],
-					),
-				),
-			),
-		);
-	}
+  List<Map> meals = [
+    {
+      // Dummy Data
+      "meal_title": "Breakfast",
+      "meal_name": "Avocado Toast with Eggs",
+      "timing": "08:00 AM",
+      "total_calories": 400,
+      "macronutrients": {"protein": 20, "carbs": 40, "fats": 15},
+      "google_search": "Avocado Toast with Eggs recipe",
+      "image_url":
+          "https://design4users.com/wp-content/uploads/2023/03/food-illustration-by-helen-lee.jpg",
+      "isConsumed": false,
+    },
+    {
+      "meal_title": "Lunch",
+      "meal_name": "Grilled Chicken Salad",
+      "timing": "01:00 PM",
+      "total_calories": 550,
+      "macronutrients": {"protein": 45, "carbs": 30, "fats": 10},
+      "google_search": "Grilled Chicken Salad recipe",
+      "image_url":
+          "https://design4users.com/wp-content/uploads/2023/03/food-illustration-by-helen-lee.jpg",
+      "isConsumed": false,
+    },
+    {
+      "meal_title": "Dinner",
+      "meal_name": "Quinoa & Vegetable Stir Fry",
+      "timing": "07:30 PM",
+      "total_calories": 600,
+      "macronutrients": {"protein": 35, "carbs": 50, "fats": 12},
+      "google_search": "Quinoa & Vegetable Stir Fry recipe",
+      "image_url":
+          "https://design4users.com/wp-content/uploads/2023/03/food-illustration-by-helen-lee.jpg",
+      "isConsumed": false,
+    }
+  ];
+  bool isGenerating = false;
+
+  // Define meal categories based on the number of meals
+  Map<int, List<String>> mealTemplates = {
+    3: ["Breakfast", "Lunch", "Dinner"],
+    4: ["Breakfast", "Morning Snack", "Lunch", "Dinner"],
+    5: ["Breakfast", "Morning Snack", "Lunch", "Evening Snack", "Dinner"]
+  };
+
+  var userData = {
+    "age": 30,
+    "gender": "Male",
+    "height": 165,
+    "weight": 60,
+    "country": "India",
+    "city": "Pune",
+    "body_fat_percentage": 22,
+    "goal": "Weight Loss",
+    "target_calories": 1800,
+    "macronutrient_ratio": {"protein": 40, "carbs": 40, "fats": 20},
+    "exercise_level": "Moderate",
+    "diet_type": "Normal",
+    "allergies": ["Dairy"],
+    "food_preferences": ["Vegetarian"],
+    "cultural_restrictions": ["No Beef"],
+  };
+
+  Future<void> generateMealPlan() async {
+    setState(() {
+      isGenerating = true;
+      meals.clear();
+    });
+
+    int numberOfMeals = 5;
+    List<String> selectedMeals =
+        mealTemplates[numberOfMeals] ?? mealTemplates[3] ?? [];
+
+    for (int i = 0; i < selectedMeals.length; i++) {
+      String mealType = selectedMeals[i];
+
+      String prompt = '''
+        Generate a $mealType meal based on the user attributes.
+        Ensure that:
+        - The meal follows the user's diet type, allergies, and food preferences.
+        - The meal contributes to the user's target calorie intake of ${userData["target_calories"]} kcal/day.
+        - Timing is spread logically based on their exercise level and daily routine.
+        - The response must be a VALID JSON string with no extra text, new lines, or special characters outside JSON.
+
+        Strictly format the output as:
+        {
+          "meal_title": "$mealType",
+          "meal_name": "Example Meal Name",
+          "timing": "HH:MM AM/PM",
+          "total_calories": 0,
+          "macronutrients": { "protein": 0, "carbs": 0, "fats": 0 },
+          "google_search": "Example Meal Name recipe",
+          "recipe": "Step 1) Do this. Step 2) Do that. Step 3) Serve hot."
+        }
+
+        Rules:
+        - Use **only** double quotes (`"`) for keys and string values.
+        - Do **not** add any text outside the JSON object.
+        - Ensure numbers are **not** wrapped in quotes.
+        - Escape any special characters properly.
+        - Do **not** include newlines or extra spaces in the response.
+      ''';
+
+      String? response =
+          await groqRequest("User Attributes: $userData", prompt);
+
+      if (response != null) {
+        try {
+          try {
+            // print(response);
+            Map<String, dynamic> meal = jsonDecode(response);
+            var result = await googleImageSearch(meal["meal_name"]);
+            var imageUrl;
+            if (result["error"] == "error") {
+              imageUrl =
+                  "https://design4users.com/wp-content/uploads/2023/03/food-illustration-by-helen-lee.jpg";
+            } else {
+              imageUrl = result["sucess"];
+            }
+            meal["image_url"] = imageUrl;
+            meal["is_consumed"] = false;
+            print("MealName: " +
+                meal['meal_name'] +
+                " ImageUrl: " +
+                meal['image_url']);
+
+            meals.add(meal);
+          } catch (e) {
+            print("JSON Parsing Error: $e");
+          }
+        } catch (e) {
+          print("Error parsing meal JSON: $e");
+        }
+      }
+    }
+
+    setState(() {
+      isGenerating = false;
+    });
+
+    // print(meals);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Existing AppBar and other widgets remain the same
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 20),
+                                const Text(
+                                  "Today's Meals",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                const SizedBox(height: 16),
+
+                                // Dynamic meal cards
+                                for (int i = 0; i < meals.length; i++)
+                                  Column(
+                                    children: [
+                                      _buildMealCard(
+                                        mealType:
+                                            meals[i]["meal_title"].toString(),
+                                        time: meals[i]["timing"]
+                                            .toString(), // You can parse from JSON
+                                        mealName: meals[i]["meal_name"]
+                                            .toString(), // Parse from JSON
+                                        calories: meals[i]["total_calories"]
+                                            .toString(), // Parse from JSON
+                                        protein: meals[i]["macronutrients"]
+                                                ["protein"]
+                                            .toString(), // Parse from JSON
+                                        imageUrl:
+                                            meals[i]["image_url"].toString(),
+                                        isConsumed: false,
+                                        onConsumed: () {
+                                          setState(() {});
+                                        },
+                                      ),
+                                      const SizedBox(height: 16),
+                                    ],
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // Bottom Section with Regenerate Button
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFF9FAFB),
+                          border: Border(
+                            top: BorderSide(color: Color(0xFFE5E7EB)),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            // Regenerate Button with Highlight
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: isGenerating
+                                    ? const Color(0xFF2563EB).withOpacity(0.2)
+                                    : Colors.transparent,
+                                border:
+                                    Border.all(color: const Color(0xFFD1D5DB)),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: TextButton.icon(
+                                icon: const Icon(Icons.refresh, size: 18),
+                                label: Text(
+                                  isGenerating ? "Generating..." : "Regenerate",
+                                  style: TextStyle(
+                                    color: isGenerating
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                ),
+                                onPressed:
+                                    isGenerating ? null : generateMealPlan,
+                                style: TextButton.styleFrom(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 12),
+                                ),
+                              ),
+                            ),
+
+                            const SizedBox(height: 16),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+
+            // Loading Overlay
+            if (isGenerating)
+              Positioned.fill(
+                child: Container(
+                  color: Colors.black.withOpacity(0.5),
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMealCard({
+    required String mealType,
+    required String time,
+    required String mealName,
+    required String calories,
+    required String protein,
+    required String imageUrl,
+    bool isConsumed = false,
+    VoidCallback? onConsumed,
+  }) {
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: Color(0xFFE5E7EB)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Meal Type & Time
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  mealType,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  time,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFF6B7280),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+
+            // Meal Image
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MealDetailPage()),
+                );
+                // Perform action (e.g., open image in full screen)
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // Meal Name
+            Text(
+              mealName,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            // Calories & Protein Row
+            Row(
+              children: [
+                // Calories with Fire Icon
+                const Icon(Icons.local_fire_department,
+                    color: Colors.grey, size: 20),
+                const SizedBox(width: 4),
+                Text(
+                  "$calories kcal",
+                  style: const TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+                const SizedBox(width: 16),
+
+                // Protein with Dumbbell Icon
+                const Icon(Icons.fitness_center, color: Colors.grey, size: 20),
+                const SizedBox(width: 4),
+                Text(
+                  "$protein protein",
+                  style: const TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+
+            // Consumed Button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: onConsumed,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: isConsumed
+                      ? const Color(0xFF10B981) // Green if consumed
+                      : const Color(0xFF2563EB), // Blue if not
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Text(
+                  isConsumed ? "Consumed" : "Mark as Consumed",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

@@ -1,7 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:snap_meal/constants/colors.dart';
+//import 'package:snap_meal/constants/colors.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+// import 'package:snap_meal/api/gemini.dart'; // Import the Gemini API
+import 'package:snap_meal/screens/ScannedMealPage.dart';
+
+final _firebase = FirebaseAuth.instance;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,8 +15,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.background,
-        body: const SafeArea(
+        backgroundColor: Colors.white,
+        body: SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(20),
             child: Column(
@@ -33,21 +39,53 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListTile(
-        leading: CircleAvatar(
-          radius: 25,
-          foregroundImage: AssetImage('assets/images/profile.png'),
-        ),
-        title: const Text('Hi, Devang',
-            style: TextStyle(
-                fontSize: 28,
-                color: Colors.black,
-                fontWeight: FontWeight.bold)),
-        subtitle: Text("Let's track your meals",
-            style: TextStyle(fontSize: 12, color: Colors.grey[600]!)),
-        trailing: const Text('12AM', style: TextStyle(color: Colors.black)),
-      ),
+    final user = FirebaseAuth.instance.currentUser!;
+
+    return FutureBuilder<DocumentSnapshot>(
+      future:
+          FirebaseFirestore.instance.collection("users").doc(user.uid).get(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        }
+
+        if (!snapshot.hasData || snapshot.data == null) {
+          return Center(child: Text("Error fetching user data"));
+        }
+
+        var profileData = snapshot.data!.data() as Map<String, dynamic>;
+
+        return Container(
+          child: ListTile(
+            leading: CircleAvatar(
+              radius: 25,
+              foregroundImage: AssetImage('assets/images/profile.png'),
+            ),
+            title: Text(
+              'Hi, ${profileData['username']}',
+              style: TextStyle(
+                  fontSize: 28,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+            subtitle: Text(
+              "Let's track your meals",
+              style: TextStyle(fontSize: 12, color: Colors.grey[600]!),
+            ),
+            trailing: IconButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+              },
+              icon: Icon(
+                Icons.exit_to_app,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
@@ -258,24 +296,24 @@ class ProgressBar extends StatelessWidget {
   }
 }
 
-class ScanMealCard extends StatefulWidget {
+class ScanMealCard extends StatelessWidget {
   const ScanMealCard({Key? key}) : super(key: key);
 
-  @override
-  State<ScanMealCard> createState() => _ScanMealCardState();
-}
-
-class _ScanMealCardState extends State<ScanMealCard> {
-  File? _image;
-  final ImagePicker _picker = ImagePicker();
-
-  Future<void> _openCamera() async {
+  Future<void> _openCamera(BuildContext context) async {
+    final ImagePicker picker = ImagePicker();
     final XFile? pickedFile =
-        await _picker.pickImage(source: ImageSource.camera);
+        await picker.pickImage(source: ImageSource.camera);
+
     if (pickedFile != null) {
-      setState(() {
-        _image = File(pickedFile.path);
-      });
+      // Immediately navigate to ScannedMealPage with the image
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ScannedMealPage(
+            imageFile: File(pickedFile.path),
+          ),
+        ),
+      );
     }
   }
 
@@ -290,19 +328,9 @@ class _ScanMealCardState extends State<ScanMealCard> {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center, // Center everything
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (_image != null)
-              Padding(
-                padding: EdgeInsets.only(right: 10), // Adjust spacing
-                child: Image.file(
-                  _image!,
-                  width: 200,
-                  height: 300,
-                  fit: BoxFit.cover,
-                ),
-              ),
-
+            // Scan Meal Button
             Expanded(
               child: Container(
                 height: 80,
@@ -314,12 +342,12 @@ class _ScanMealCardState extends State<ScanMealCard> {
                     ),
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
-                  onPressed: _openCamera,
+                  onPressed: () => _openCamera(context),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min, // Keeps it compact
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(Icons.camera_alt, color: Colors.white, size: 24),
-                      SizedBox(height: 5), // Space between icon and text
+                      SizedBox(height: 5),
                       Text(
                         "Scan Meal",
                         style: TextStyle(color: Colors.white, fontSize: 14),
@@ -330,8 +358,9 @@ class _ScanMealCardState extends State<ScanMealCard> {
               ),
             ),
 
-            SizedBox(width: 10), // Space between buttons
+            SizedBox(width: 10),
 
+            // Add Manually Button
             Expanded(
               child: Container(
                 height: 80,
@@ -343,7 +372,7 @@ class _ScanMealCardState extends State<ScanMealCard> {
                     ),
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
-                  onPressed: () {},
+                  onPressed: () {}, // Future: Manual Entry Functionality
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -453,17 +482,17 @@ class CardListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: const [
             Card(
-                "Vegan",
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-                "8 min away"),
+                "Meal 1",
+                "https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-download-in-svg-png-gif-file-formats--delicious-logo-dinner-pack-food-drink-illustrations-7153829.png?f=webp",
+                "1500 Calories"),
             Card(
-                "Italian ",
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
-                "12 min away"),
+                "Meal 2",
+                "https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-download-in-svg-png-gif-file-formats--delicious-logo-dinner-pack-food-drink-illustrations-7153829.png?f=webp",
+                "700 Calories"),
             Card(
-                "Vegan",
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-                "15 min away"),
+                "Meal 3",
+                "https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-download-in-svg-png-gif-file-formats--delicious-logo-dinner-pack-food-drink-illustrations-7153829.png?f=webp",
+                "900 Calories"),
           ],
         ),
       ),

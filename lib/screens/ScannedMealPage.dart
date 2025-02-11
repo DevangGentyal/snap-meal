@@ -1,650 +1,481 @@
 import 'package:flutter/material.dart';
+import 'package:snap_meal/screens/HomePage.dart';
+import 'package:snap_meal/api/gemini.dart';
+import 'dart:io';
+
 class ScannedMealPage extends StatefulWidget {
-	const ScannedMealPage({super.key});
-	@override
-		ScannedMealPageState createState() => ScannedMealPageState();
-	}
+  final File imageFile;
+
+  const ScannedMealPage({
+    Key? key,
+    required this.imageFile,
+  }) : super(key: key);
+
+  @override
+  ScannedMealPageState createState() => ScannedMealPageState();
+}
+
 class ScannedMealPageState extends State<ScannedMealPage> {
-	@override
-	Widget build(BuildContext context) {
-		return Scaffold(
-			body: SafeArea(
-				child: Container(
-					constraints: const BoxConstraints.expand(),
-					color: Color(0xFFFFFFFF),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: [
-							Expanded(
-								child: Container(
-									decoration: BoxDecoration(
-										border: Border.all(
-											color: Color(0xFFCED4DA),
-											width: 2,
-										),
-										borderRadius: BorderRadius.circular(8),
-										color: Color(0xFFFFFFFF),
-									),
-									width: double.infinity,
-									height: double.infinity,
-									child: SingleChildScrollView(
-										child: Column(
-											crossAxisAlignment: CrossAxisAlignment.start,
-											children: [
-												IntrinsicHeight(
-													child: Container(
-														color: Color(0xFFF9FAFB),
-														padding: const EdgeInsets.all(16),
-														width: double.infinity,
-														child: Column(
-															crossAxisAlignment: CrossAxisAlignment.start,
-															children: [
-																Container(
-																	decoration: BoxDecoration(
-																		borderRadius: BorderRadius.circular(16),
-																	),
-																	margin: const EdgeInsets.only( bottom: 24),
-																	height: 300,
-																	width: double.infinity,
-																	child: ClipRRect(
-																		borderRadius: BorderRadius.circular(16),
-																		child: Image.network(
-																			"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/55db65cf-3c7b-4a97-bb3d-d883cb23c659",
-																			fit: BoxFit.fill,
-																		)
-																	)
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		margin: const EdgeInsets.only( bottom: 24),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						margin: const EdgeInsets.only( bottom: 12),
-																						width: double.infinity,
-																						child: Row(
-																							mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										decoration: BoxDecoration(
-																											borderRadius: BorderRadius.circular(12),
-																											color: Color(0xFFEFF6FF),
-																										),
-																										padding: const EdgeInsets.all(16),
-																										width: 173,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 4),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"Total Calories",
-																																	style: TextStyle(
-																																		color: Color(0xFF4B5563),
-																																		fontSize: 14,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 6),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"650 kcal",
-																																	style: TextStyle(
-																																		color: Color(0xFF1F2937),
-																																		fontSize: 20,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										decoration: BoxDecoration(
-																											borderRadius: BorderRadius.circular(12),
-																											color: Color(0xFFF0FDF4),
-																										),
-																										padding: const EdgeInsets.all(16),
-																										width: 173,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.only( top: 4, bottom: 4, left: 1, right: 1),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"Protein",
-																																	style: TextStyle(
-																																		color: Color(0xFF4B5563),
-																																		fontSize: 14,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.only( top: 6, bottom: 6, left: 1, right: 1),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"35g",
-																																	style: TextStyle(
-																																		color: Color(0xFF1F2937),
-																																		fontSize: 20,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																				IntrinsicHeight(
-																					child: Container(
-																						width: double.infinity,
-																						child: Row(
-																							mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										decoration: BoxDecoration(
-																											borderRadius: BorderRadius.circular(12),
-																											color: Color(0xFFFEFCE8),
-																										),
-																										padding: const EdgeInsets.all(16),
-																										width: 173,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 4),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"Carbs",
-																																	style: TextStyle(
-																																		color: Color(0xFF4B5563),
-																																		fontSize: 14,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 6),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"75g",
-																																	style: TextStyle(
-																																		color: Color(0xFF1F2937),
-																																		fontSize: 20,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										decoration: BoxDecoration(
-																											borderRadius: BorderRadius.circular(12),
-																											color: Color(0xFFFAF5FF),
-																										),
-																										padding: const EdgeInsets.all(16),
-																										width: 173,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.only( top: 4, bottom: 4, left: 1, right: 1),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"Fat",
-																																	style: TextStyle(
-																																		color: Color(0xFF4B5563),
-																																		fontSize: 14,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.only( top: 6, bottom: 6, left: 1, right: 1),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"22g",
-																																	style: TextStyle(
-																																		color: Color(0xFF1F2937),
-																																		fontSize: 20,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		decoration: BoxDecoration(
-																			borderRadius: BorderRadius.circular(12),
-																			color: Color(0xFFDCFCE7),
-																		),
-																		padding: const EdgeInsets.symmetric(vertical: 16),
-																		margin: const EdgeInsets.only( bottom: 24),
-																		width: double.infinity,
-																		child: Row(
-																			mainAxisAlignment: MainAxisAlignment.center,
-																			children: [
-																				Container(
-																					margin: const EdgeInsets.only( right: 12),
-																					width: 24,
-																					height: 24,
-																					child: Image.network(
-																						"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e2347824-320c-4075-95fa-ea2f8822e79b",
-																						fit: BoxFit.fill,
-																					)
-																				),
-																				IntrinsicHeight(
-																					child: Container(
-																						padding: const EdgeInsets.symmetric(vertical: 3),
-																						width: 288,
-																						child: Column(
-																							crossAxisAlignment: CrossAxisAlignment.start,
-																							children: [
-																								Container(
-																									margin: const EdgeInsets.only( bottom: 7),
-																									child: Text(
-																										"Good Calorie Range",
-																										style: TextStyle(
-																											color: Color(0xFF166534),
-																											fontSize: 16,
-																										),
-																									),
-																								),
-																								Container(
-																									width: double.infinity,
-																									child: Text(
-																										"This meal fits within your daily calorie goals",
-																										style: TextStyle(
-																											color: Color(0xFF15803D),
-																											fontSize: 14,
-																										),
-																										textAlign: TextAlign.center,
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		padding: const EdgeInsets.symmetric(vertical: 5),
-																		margin: const EdgeInsets.only( bottom: 32),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				Container(
-																					margin: const EdgeInsets.only( bottom: 21),
-																					child: Text(
-																						"Similar Healthy Options",
-																						style: TextStyle(
-																							color: Color(0xFF1F2937),
-																							fontSize: 18,
-																						),
-																					),
-																				),
-																				IntrinsicHeight(
-																					child: Container(
-																						width: double.infinity,
-																						child: Column(
-																							crossAxisAlignment: CrossAxisAlignment.start,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										decoration: BoxDecoration(
-																											borderRadius: BorderRadius.circular(12),
-																											color: Color(0xFFFFFFFF),
-																											boxShadow: [
-																												BoxShadow(
-																													color: Color(0x0D000000),
-																													blurRadius: 2,
-																													offset: Offset(0, 1),
-																												),
-																											],
-																										),
-																										padding: const EdgeInsets.all(12),
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Row(
-																											children: [
-																												Container(
-																													decoration: BoxDecoration(
-																														borderRadius: BorderRadius.circular(8),
-																													),
-																													margin: const EdgeInsets.only( right: 16),
-																													width: 96,
-																													height: 96,
-																													child: ClipRRect(
-																														borderRadius: BorderRadius.circular(8),
-																														child: Image.network(
-																															"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/51dd6345-d616-4548-b265-4bbd757c842a",
-																															fit: BoxFit.fill,
-																														)
-																													)
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 3),
-																														width: 155,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Container(
-																																	margin: const EdgeInsets.only( bottom: 4),
-																																	width: double.infinity,
-																																	child: Text(
-																																		"Grilled Salmon Bowl",
-																																		style: TextStyle(
-																																			color: Color(0xFF1F2937),
-																																			fontSize: 16,
-																																		),
-																																		textAlign: TextAlign.center,
-																																	),
-																																),
-																																Container(
-																																	margin: const EdgeInsets.only( bottom: 15),
-																																	width: double.infinity,
-																																	child: Text(
-																																		"580 kcal | High Protein",
-																																		style: TextStyle(
-																																			color: Color(0xFF4B5563),
-																																			fontSize: 14,
-																																		),
-																																		textAlign: TextAlign.center,
-																																	),
-																																),
-																																InkWell(
-																																	onTap: () { print('Pressed'); },
-																																	child: IntrinsicWidth(
-																																		child: IntrinsicHeight(
-																																			child: Container(
-																																				decoration: BoxDecoration(
-																																					borderRadius: BorderRadius.circular(9999),
-																																					color: Color(0xFF3B82F6),
-																																				),
-																																				padding: const EdgeInsets.only( top: 10, bottom: 10, left: 16, right: 16),
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						Text(
-																																							"View Recipe",
-																																							style: TextStyle(
-																																								color: Color(0xFFFFFFFF),
-																																								fontSize: 14,
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										decoration: BoxDecoration(
-																											borderRadius: BorderRadius.circular(12),
-																											color: Color(0xFFFFFFFF),
-																											boxShadow: [
-																												BoxShadow(
-																													color: Color(0x0D000000),
-																													blurRadius: 2,
-																													offset: Offset(0, 1),
-																												),
-																											],
-																										),
-																										padding: const EdgeInsets.all(12),
-																										width: double.infinity,
-																										child: Row(
-																											children: [
-																												Container(
-																													decoration: BoxDecoration(
-																														borderRadius: BorderRadius.circular(8),
-																													),
-																													margin: const EdgeInsets.only( right: 16),
-																													width: 96,
-																													height: 96,
-																													child: ClipRRect(
-																														borderRadius: BorderRadius.circular(8),
-																														child: Image.network(
-																															"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ce7640bb-7c55-48c8-aac8-a50808d1d5d6",
-																															fit: BoxFit.fill,
-																														)
-																													)
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 3),
-																														width: 161,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Container(
-																																	margin: const EdgeInsets.only( bottom: 4),
-																																	width: double.infinity,
-																																	child: Text(
-																																		"Quinoa Buddha Bowl",
-																																		style: TextStyle(
-																																			color: Color(0xFF1F2937),
-																																			fontSize: 16,
-																																		),
-																																		textAlign: TextAlign.center,
-																																	),
-																																),
-																																Container(
-																																	margin: const EdgeInsets.only( bottom: 15, left: 1),
-																																	child: Text(
-																																		"520 kcal | Plant Based",
-																																		style: TextStyle(
-																																			color: Color(0xFF4B5563),
-																																			fontSize: 14,
-																																		),
-																																	),
-																																),
-																																InkWell(
-																																	onTap: () { print('Pressed'); },
-																																	child: IntrinsicWidth(
-																																		child: IntrinsicHeight(
-																																			child: Container(
-																																				decoration: BoxDecoration(
-																																					borderRadius: BorderRadius.circular(9999),
-																																					color: Color(0xFF3B82F6),
-																																				),
-																																				padding: const EdgeInsets.only( top: 10, bottom: 10, left: 16, right: 16),
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						Text(
-																																							"View Recipe",
-																																							style: TextStyle(
-																																								color: Color(0xFFFFFFFF),
-																																								fontSize: 14,
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		padding: const EdgeInsets.only( left: 67, right: 67),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						decoration: BoxDecoration(
-																							borderRadius: BorderRadius.circular(9999),
-																							color: Color(0xFF3B82F6),
-																							boxShadow: [
-																								BoxShadow(
-																									color: Color(0x1A000000),
-																									blurRadius: 6,
-																									offset: Offset(0, 4),
-																								),
-																							],
-																						),
-																						padding: const EdgeInsets.symmetric(vertical: 14),
-																						width: double.infinity,
-																						child: Row(
-																							mainAxisAlignment: MainAxisAlignment.center,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										margin: const EdgeInsets.only( right: 8),
-																										width: 14,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												Container(
-																													margin: const EdgeInsets.only( top: 2),
-																													height: 16,
-																													width: double.infinity,
-																													child: Image.network(
-																														"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9a507d6e-d280-4be4-a9e6-37acac09dc39",
-																														fit: BoxFit.fill,
-																													)
-																												),
-																											]
-																										),
-																									),
-																								),
-																								Text(
-																									"Add to Food Journal",
-																									style: TextStyle(
-																										color: Color(0xFFFFFFFF),
-																										fontSize: 16,
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-															]
-														),
-													),
-												),
-											],
-										)
-									),
-								),
-							),
-						],
-					),
-				),
-			),
-		);
-	}
+  bool _isAnalyzing = true;
+  Map<String, dynamic>? _mealAnalysis;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _analyzeMeal();
+  }
+
+  Future<void> _analyzeMeal() async {
+    try {
+      final analysisResult =
+          await GeminiService.analyzeMealImage(widget.imageFile);
+      setState(() {
+        _mealAnalysis = analysisResult;
+        _isAnalyzing = false;
+      });
+    } catch (e) {
+      setState(() {
+        _error = e.toString();
+        _isAnalyzing = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final isTablet = screenSize.width > 600;
+    final horizontalPadding = screenSize.width * 0.05;
+
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
+        title: const Text(
+          'Meal Analysis',
+          style: TextStyle(
+              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: _isAnalyzing
+            ? _buildLoadingState()
+            : _error != null
+                ? _buildErrorState()
+                : _buildAnalysisContent(
+                    screenSize, isTablet, horizontalPadding),
+      ),
+    );
+  }
+
+  Widget _buildLoadingState() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Analyzing your meal...',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: Colors.black87,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildErrorState() {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.error_outline, size: 48, color: Colors.red),
+            SizedBox(height: 16),
+            Text(
+              'Analysis Failed',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              _error ?? 'An unknown error occurred',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _isAnalyzing = true;
+                  _error = null;
+                });
+                _analyzeMeal();
+              },
+              child: Text('Try Again'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAnalysisContent(
+      Size screenSize, bool isTablet, double horizontalPadding) {
+    if (_mealAnalysis == null) return Container();
+
+    final int calories = _mealAnalysis!['totalCalories'] ?? 0;
+    final int protein = _mealAnalysis!['protein'] ?? 0;
+    final int carbs = _mealAnalysis!['carbs'] ?? 0;
+    final int fat = _mealAnalysis!['fat'] ?? 0;
+    final String calorieStatus =
+        _mealAnalysis!['calorieRangeStatus'] ?? "Unknown";
+    final List<String> suggestions = _mealAnalysis!['suggestions'] ?? [];
+
+    return Container(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: horizontalPadding, vertical: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Captured Image
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.file(
+                        widget.imageFile,
+                        height: isTablet ? 400 : screenSize.width * 0.6,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(height: 24),
+
+                    // Nutrition Info Cards
+                    Wrap(
+                      spacing: 12,
+                      runSpacing: 12,
+                      children: [
+                        _buildInfoCard("Calories", "$calories cal",
+                            Color.fromARGB(255, 255, 174, 174)),
+                        _buildInfoCard(
+                            "Protein", "$protein g", Color(0xFFF0FDF4)),
+                        _buildInfoCard("Carbs", "$carbs g", Color(0xFFFEFCE8)),
+                        _buildInfoCard("Fat", "$fat g",
+                            Color.fromARGB(255, 248, 245, 255)),
+                      ],
+                    ),
+                    SizedBox(height: 24),
+
+                    // Calorie Status
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: calorieStatus == "Good"
+                            ? Color(0xFFDCFCE7)
+                            : calorieStatus == "Average"
+                                ? Color(0xFFFFF5E1)
+                                : Color(0xFFFEE2E2),
+                      ),
+                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.only(bottom: 24),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.info_outline,
+                            color: calorieStatus == "Good"
+                                ? Colors.green
+                                : calorieStatus == "Average"
+                                    ? Colors.orange
+                                    : Colors.red,
+                          ),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              "Calorie Status: $calorieStatus",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Similar Options
+                    if (suggestions.isNotEmpty)
+                      _buildSimilarOptions(context, suggestions),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoCard(String title, String value, Color backgroundColor) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: backgroundColor,
+      ),
+      padding: EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(color: Color(0xFF4B5563), fontSize: 14),
+          ),
+          SizedBox(height: 6),
+          Text(
+            value,
+            style: TextStyle(
+              color: Color(0xFF1F2937),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSimilarOptions(BuildContext context, List<String> suggestions) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 16),
+      margin: EdgeInsets.only(bottom: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Similar Healthy Options",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+          ),
+          SizedBox(height: 16),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 10,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                for (int i = 0; i < suggestions.length; i++)
+                  _buildSimilarOptionCard(
+                    title:
+                        i == 0 ? "Grilled Salmon Bowl" : "Quinoa Buddha Bowl",
+                    calories: i == 0 ? "580" : "520",
+                    type: i == 0 ? "High Protein" : "Plant Based",
+                    imageUrl: i == 0
+                        ? "https://source.unsplash.com/featured/?grilled,salmon"
+                        : "https://source.unsplash.com/featured/?quinoa,bowl",
+                  ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+          Container(
+            width: double.infinity,
+            height: 48,
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.add, color: Colors.white),
+              label: Text(
+                "Add to Food Journal",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF4285F4),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSimilarOptionCard({
+    required String title,
+    required String calories,
+    required String type,
+    required String imageUrl,
+  }) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.grey.withOpacity(0.2),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: _buildFoodImage(imageUrl),
+          ),
+          SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "$calories kcal | $type",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              backgroundColor: Color(0xFF4285F4),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            ),
+            child: Text(
+              "View Recipe",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFoodImage(String imageUrl) {
+    return Container(
+      width: 80,
+      height: 80,
+      child: Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return Container(
+            width: 80,
+            height: 80,
+            color: Colors.grey[200],
+            child: Icon(
+              Icons.restaurant,
+              color: Colors.grey[400],
+              size: 40,
+            ),
+          );
+        },
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Container(
+            width: 80,
+            height: 80,
+            color: Colors.grey[200],
+            child: Center(
+              child: CircularProgressIndicator(
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes!
+                    : null,
+                strokeWidth: 2,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildAddToJournalButton(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isSmallScreen = screenWidth < 360;
+
+    return Container(
+      width: double.infinity,
+      height: isSmallScreen ? 44 : 48,
+      child: ElevatedButton.icon(
+        onPressed: () {},
+        icon: Icon(
+          Icons.add,
+          color: Colors.white,
+          size: isSmallScreen ? 18 : 24,
+        ),
+        label: Text(
+          "Add to Food Journal",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: isSmallScreen ? 14 : 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xFF4285F4),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          padding: EdgeInsets.symmetric(
+            horizontal: isSmallScreen ? 16 : 24,
+          ),
+        ),
+      ),
+    );
+  }
 }

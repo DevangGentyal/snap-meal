@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gcm_defaultSenderId" translatable="false">837481848654</string>
+    <string name="google_api_key" translatable="false">AIzaSyAOkBoBvUDjKM1Yit1kwtixOG-rc-CgEOk</string>
+    <string name="google_app_id" translatable="false">1:837481848654:android:6a6744ae93ef560ba8c81f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOkBoBvUDjKM1Yit1kwtixOG-rc-CgEOk</string>
+    <string name="google_storage_bucket" translatable="false">snapmeal-e285b.firebasestorage.app</string>
+    <string name="project_id" translatable="false">snapmeal-e285b</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         
         <item name="android:windowBackground">@drawable/launch_background</item>

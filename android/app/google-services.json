@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "837481848654",
+    "project_id": "snapmeal-e285b",
+    "storage_bucket": "snapmeal-e285b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837481848654:android:6a6744ae93ef560ba8c81f",
+        "android_client_info": {
+          "package_name": "com.example.snap_meal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOkBoBvUDjKM1Yit1kwtixOG-rc-CgEOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

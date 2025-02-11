@@ -1,895 +1,535 @@
+// import 'package:flutter/material.dart';
+
+// class SocialRankingPage extends StatelessWidget {
+//   final List<RankingUser> topUsers = [
+//     RankingUser('Sarah K.', 2890, 'assets/sarah.jpg', 2),
+//     RankingUser('John D.', 3456, 'assets/john.jpg', 1),
+//     RankingUser('Mike R.', 2654, 'assets/mike.jpg', 3),
+//   ];
+
+//   final List<RankingUser> otherUsers = [
+//     RankingUser('Emma W.', 2345, 'assets/emma.jpg', 4),
+//     RankingUser('Alex M.', 2100, 'assets/alex.jpg', 5),
+//     RankingUser('Lisa P.', 1890, 'assets/lisa.jpg', 6),
+//     RankingUser('Tom H.', 1654, 'assets/tom.jpg', 7),
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: Column(
+//           children: [
+//             Container(
+//               padding: EdgeInsets.all(16),
+//               child: Text(
+//                 'Social Ranking',
+//                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+//               ),
+//             ),
+//             _buildTopThree(),
+//             Expanded(
+//               child: _buildRankingList(),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget _buildTopThree() {
+//     return Container(
+//       height: 160,
+//       padding: EdgeInsets.symmetric(horizontal: 16),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         crossAxisAlignment: CrossAxisAlignment.end,
+//         children: [
+//           _buildPodiumItem(topUsers[0], 100), // 2nd place
+//           _buildPodiumItem(topUsers[1], 120), // 1st place
+//           _buildPodiumItem(topUsers[2], 80),  // 3rd place
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget _buildPodiumItem(RankingUser user, double height) {
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.end,
+//       children: [
+//         Container(
+//           decoration: BoxDecoration(
+//             border: Border.all(color: Colors.purple.shade200, width: 2),
+//             borderRadius: BorderRadius.circular(12),
+//           ),
+//           padding: EdgeInsets.all(8),
+//           child: Column(
+//             children: [
+//               CircleAvatar(
+//                 backgroundImage: AssetImage(user.imageUrl),
+//                 radius: 20,
+//               ),
+//               SizedBox(height: 4),
+//               Text(user.name, style: TextStyle(fontWeight: FontWeight.bold)),
+//               Text('${user.points} pts', 
+//                 style: TextStyle(color: Colors.blue, fontSize: 12)),
+//             ],
+//           ),
+//         ),
+//         Container(
+//           height: height,
+//           width: 80,
+//           margin: EdgeInsets.only(top: 8),
+//           decoration: BoxDecoration(
+//             color: Colors.purple.shade100,
+//             borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+
+//   Widget _buildRankingList() {
+//     return ListView.builder(
+//       padding: EdgeInsets.all(16),
+//       itemCount: otherUsers.length,
+//       itemBuilder: (context, index) {
+//         final user = otherUsers[index];
+//         return Container(
+//           margin: EdgeInsets.only(bottom: 12),
+//           child: Row(
+//             children: [
+//               Text('${user.rank}', 
+//                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+//               SizedBox(width: 12),
+//               CircleAvatar(
+//                 backgroundImage: AssetImage(user.imageUrl),
+//                 radius: 20,
+//               ),
+//               SizedBox(width: 12),
+//               Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Text(user.name, 
+//                     style: TextStyle(fontWeight: FontWeight.bold)),
+//                   Text('${user.points} points', 
+//                     style: TextStyle(color: Colors.grey)),
+//                 ],
+//               ),
+//               Spacer(),
+//               _getRankIcon(user.rank),
+//             ],
+//           ),
+//         );
+//       },
+//     );
+//   }
+
+//   Widget _getRankIcon(int rank) {
+//     IconData icon;
+//     Color color;
+//     switch (rank) {
+//       case 4:
+//         icon = Icons.star;
+//         color = Colors.amber;
+//         break;
+//       case 5:
+//         icon = Icons.military_tech;
+//         color = Colors.grey;
+//         break;
+//       case 6:
+//         icon = Icons.emoji_events;
+//         color = Colors.blue;
+//         break;
+//       default:
+//         icon = Icons.stars;
+//         color = Colors.purple;
+//     }
+//     return Icon(icon, color: color);
+//   }
+// }
+
+// class RankingUser {
+//   final String name;
+//   final int points;
+//   final String imageUrl;
+//   final int rank;
+
+//   RankingUser(this.name, this.points, this.imageUrl, this.rank);
+// }
+
+
+// import 'package:flutter/material.dart';
+
+// class SocialRankingPage extends StatelessWidget {
+//   final List<RankingUser> topUsers = [
+//     RankingUser('Sarah K.', 2890, 'assets/sarah.jpg', 2),
+//     RankingUser('John D.', 3456, 'assets/john.jpg', 1),
+//     RankingUser('Mike R.', 2654, 'assets/mike.jpg', 3),
+//   ];
+
+//   final List<RankingUser> otherUsers = [
+//     RankingUser('Emma W.', 2345, 'assets/emma.jpg', 4),
+//     RankingUser('Alex M.', 2100, 'assets/alex.jpg', 5),
+//     RankingUser('Lisa P.', 1890, 'assets/lisa.jpg', 6),
+//     RankingUser('Tom H.', 1654, 'assets/tom.jpg', 7),
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: Column(
+//           children: [
+//             Padding(
+//               padding: EdgeInsets.symmetric(vertical: 16),
+//               child: Text(
+//                 'Social Ranking',
+//                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+//               ),
+//             ),
+//             _buildTopThree(),
+//             Expanded(
+//               child: _buildRankingList(),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget _buildTopThree() {
+//     return Container(
+//       height: 180,
+//       padding: EdgeInsets.symmetric(horizontal: 16),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         crossAxisAlignment: CrossAxisAlignment.end,
+//         children: [
+//           _buildPodiumItem(topUsers[0], 90), // 2nd place
+//           _buildPodiumItem(topUsers[1], 110), // 1st place (Tallest)
+//           _buildPodiumItem(topUsers[2], 80), // 3rd place
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget _buildPodiumItem(RankingUser user, double height) {
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.end,
+//       children: [
+//         Container(
+//           decoration: BoxDecoration(
+//             border: Border.all(color: Colors.purple.shade200, width: 2),
+//             borderRadius: BorderRadius.circular(12),
+//             color: Colors.white, // Ensuring a clean look
+//           ),
+//           padding: EdgeInsets.all(8),
+//           width: 85,
+//           child: Column(
+//             children: [
+//               CircleAvatar(
+//                 backgroundImage: AssetImage(user.imageUrl),
+//                 radius: 22,
+//               ),
+//               SizedBox(height: 4),
+//               Text(user.name,
+//                   textAlign: TextAlign.center,
+//                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+//               Text('${user.points} pts',
+//                   style: TextStyle(color: Colors.blue, fontSize: 12)),
+//             ],
+//           ),
+//         ),
+//         Container(
+//           height: height,
+//           width: 85,
+//           margin: EdgeInsets.only(top: 4),
+//           decoration: BoxDecoration(
+//             color: Colors.purple.shade100,
+//             borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+
+//   Widget _buildRankingList() {
+//     return ListView.builder(
+//       padding: EdgeInsets.all(16),
+//       itemCount: otherUsers.length,
+//       itemBuilder: (context, index) {
+//         final user = otherUsers[index];
+//         return Container(
+//           padding: EdgeInsets.symmetric(vertical: 8),
+//           decoration: BoxDecoration(
+//             border: Border(bottom: BorderSide(color: Colors.grey.shade300)),
+//           ),
+//           child: Row(
+//             children: [
+//               SizedBox(
+//                 width: 24,
+//                 child: Text('${user.rank}',
+//                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+//               ),
+//               SizedBox(width: 12),
+//               CircleAvatar(
+//                 backgroundImage: AssetImage(user.imageUrl),
+//                 radius: 22,
+//               ),
+//               SizedBox(width: 12),
+//               Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Text(user.name,
+//                       style: TextStyle(fontWeight: FontWeight.bold)),
+//                   Text('${user.points} points',
+//                       style: TextStyle(color: Colors.grey)),
+//                 ],
+//               ),
+//               Spacer(),
+//               _getRankIcon(user.rank),
+//             ],
+//           ),
+//         );
+//       },
+//     );
+//   }
+
+//   Widget _getRankIcon(int rank) {
+//     IconData icon;
+//     Color color;
+//     switch (rank) {
+//       case 4:
+//         icon = Icons.star;
+//         color = Colors.amber;
+//         break;
+//       case 5:
+//         icon = Icons.military_tech;
+//         color = Colors.grey;
+//         break;
+//       case 6:
+//         icon = Icons.emoji_events;
+//         color = Colors.blue;
+//         break;
+//       default:
+//         icon = Icons.stars;
+//         color = Colors.purple;
+//     }
+//     return Icon(icon, color: color);
+//   }
+// }
+
+// class RankingUser {
+//   final String name;
+//   final int points;
+//   final String imageUrl;
+//   final int rank;
+
+//   RankingUser(this.name, this.points, this.imageUrl, this.rank);
+// }
+
+
+
 import 'package:flutter/material.dart';
-class SocialRankingPage extends StatefulWidget {
-	const SocialRankingPage({super.key});
-	@override
-		SocialRankingPageState createState() => SocialRankingPageState();
-	}
-class SocialRankingPageState extends State<SocialRankingPage> {
-	@override
-	Widget build(BuildContext context) {
-		return Scaffold(
-			body: SafeArea(
-				child: Container(
-					constraints: const BoxConstraints.expand(),
-					color: Color(0xFFFFFFFF),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: [
-							Expanded(
-								child: Container(
-									decoration: BoxDecoration(
-										border: Border.all(
-											color: Color(0xFFCED4DA),
-											width: 2,
-										),
-										borderRadius: BorderRadius.circular(8),
-										color: Color(0xFFFFFFFF),
-									),
-									width: double.infinity,
-									height: double.infinity,
-									child: SingleChildScrollView(
-										child: Column(
-											crossAxisAlignment: CrossAxisAlignment.start,
-											children: [
-												IntrinsicHeight(
-													child: Container(
-														color: Color(0xFFF9FAFB),
-														padding: const EdgeInsets.only( bottom: 188),
-														width: double.infinity,
-														child: Column(
-															crossAxisAlignment: CrossAxisAlignment.start,
-															children: [
-																IntrinsicHeight(
-																	child: Container(
-																		color: Color(0xFFEFF6FF),
-																		margin: const EdgeInsets.only( bottom: 68),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						padding: const EdgeInsets.symmetric(vertical: 6),
-																						margin: const EdgeInsets.only( top: 24),
-																						width: double.infinity,
-																						child: Column(
-																							children: [
-																								Text(
-																									"Social Ranking",
-																									style: TextStyle(
-																										color: Color(0xFF1F2937),
-																										fontSize: 30,
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		width: double.infinity,
-																		child: Stack(
-																			clipBehavior: Clip.none,
-																			children: [
-																				Column(
-																					crossAxisAlignment: CrossAxisAlignment.start,
-																					children: [
-																						IntrinsicHeight(
-																							child: Container(
-																								padding: const EdgeInsets.only( top: 8, bottom: 8, left: 16, right: 16),
-																								width: double.infinity,
-																								child: Column(
-																									crossAxisAlignment: CrossAxisAlignment.start,
-																									children: [
-																										IntrinsicHeight(
-																											child: Container(
-																												padding: const EdgeInsets.only( top: 16),
-																												margin: const EdgeInsets.only( bottom: 24),
-																												width: double.infinity,
-																												child: Row(
-																													mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																													crossAxisAlignment: CrossAxisAlignment.start,
-																													children: [
-																														IntrinsicHeight(
-																															child: Container(
-																																width: 114,
-																																child: Stack(
-																																	clipBehavior: Clip.none,
-																																	children: [
-																																		Column(
-																																			crossAxisAlignment: CrossAxisAlignment.start,
-																																			children: [
-																																				IntrinsicHeight(
-																																					child: Container(
-																																						decoration: BoxDecoration(
-																																							border: Border.all(
-																																								color: Color(0xFF7E22CE),
-																																								width: 1,
-																																							),
-																																							borderRadius: BorderRadius.circular(12),
-																																							color: Color(0xFFFFFFFF),
-																																							boxShadow: [
-																																								BoxShadow(
-																																									color: Color(0x0D000000),
-																																									blurRadius: 2,
-																																									offset: Offset(0, 1),
-																																								),
-																																							],
-																																						),
-																																						padding: const EdgeInsets.only( left: 16, right: 16),
-																																						width: double.infinity,
-																																						child: Column(
-																																							crossAxisAlignment: CrossAxisAlignment.start,
-																																							children: [
-																																								IntrinsicHeight(
-																																									child: Container(
-																																										margin: const EdgeInsets.only( top: 32),
-																																										width: double.infinity,
-																																										child: Column(
-																																											crossAxisAlignment: CrossAxisAlignment.start,
-																																											children: [
-																																												IntrinsicHeight(
-																																													child: Container(
-																																														padding: const EdgeInsets.symmetric(vertical: 3),
-																																														width: double.infinity,
-																																														child: Column(
-																																															children: [
-																																																Text(
-																																																	"2nd Place",
-																																																	style: TextStyle(
-																																																		color: Color(0xFF4B5563),
-																																																		fontSize: 12,
-																																																	),
-																																																),
-																																															]
-																																														),
-																																													),
-																																												),
-																																												IntrinsicHeight(
-																																													child: Container(
-																																														padding: const EdgeInsets.symmetric(vertical: 5),
-																																														width: double.infinity,
-																																														child: Column(
-																																															children: [
-																																																Text(
-																																																	"Sarah K.",
-																																																	style: TextStyle(
-																																																		color: Color(0xFF000000),
-																																																		fontSize: 16,
-																																																	),
-																																																),
-																																															]
-																																														),
-																																													),
-																																												),
-																																												IntrinsicHeight(
-																																													child: Container(
-																																														padding: const EdgeInsets.symmetric(vertical: 4),
-																																														width: double.infinity,
-																																														child: Column(
-																																															children: [
-																																																Text(
-																																																	"2,890 pts",
-																																																	style: TextStyle(
-																																																		color: Color(0xFF2563EB),
-																																																		fontSize: 14,
-																																																	),
-																																																),
-																																															]
-																																														),
-																																													),
-																																												),
-																																											]
-																																										),
-																																									),
-																																								),
-																																							]
-																																						),
-																																					),
-																																				),
-																																			]
-																																		),
-																																		Positioned(
-																																			top: 0,
-																																			left: 41,
-																																			width: 32,
-																																			height: 32,
-																																			child: Container(
-																																				decoration: BoxDecoration(
-																																					borderRadius: BorderRadius.circular(9999),
-																																				),
-																																				transform: Matrix4.translationValues(0, -16, 0),
-																																				width: 32,
-																																				height: 32,
-																																				child: ClipRRect(
-																																					borderRadius: BorderRadius.circular(9999),
-																																					child: Image.network(
-																																						"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/14fff261-2a78-4f5c-8a5d-9b2a9077ab7a",
-																																						fit: BoxFit.fill,
-																																					)
-																																				)
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																														IntrinsicHeight(
-																															child: Container(
-																																margin: const EdgeInsets.only( top: 8),
-																																width: 82,
-																																child: Column(
-																																	crossAxisAlignment: CrossAxisAlignment.start,
-																																	children: [
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				padding: const EdgeInsets.symmetric(vertical: 3),
-																																				width: double.infinity,
-																																				child: Column(
-																																					children: [
-																																						Text(
-																																							"1st Place",
-																																							style: TextStyle(
-																																								color: Color(0xFF4B5563),
-																																								fontSize: 12,
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				padding: const EdgeInsets.symmetric(vertical: 5),
-																																				width: double.infinity,
-																																				child: Column(
-																																					children: [
-																																						Text(
-																																							"John D.",
-																																							style: TextStyle(
-																																								color: Color(0xFF000000),
-																																								fontSize: 16,
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				padding: const EdgeInsets.symmetric(vertical: 4),
-																																				width: double.infinity,
-																																				child: Column(
-																																					children: [
-																																						Text(
-																																							"3,456 pts",
-																																							style: TextStyle(
-																																								color: Color(0xFF2563EB),
-																																								fontSize: 14,
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																														IntrinsicHeight(
-																															child: Container(
-																																width: 114,
-																																child: Stack(
-																																	clipBehavior: Clip.none,
-																																	children: [
-																																		Column(
-																																			crossAxisAlignment: CrossAxisAlignment.start,
-																																			children: [
-																																				IntrinsicHeight(
-																																					child: Container(
-																																						decoration: BoxDecoration(
-																																							border: Border.all(
-																																								color: Color(0xFF7E22CE),
-																																								width: 1,
-																																							),
-																																							borderRadius: BorderRadius.circular(12),
-																																							color: Color(0xFFFFFFFF),
-																																							boxShadow: [
-																																								BoxShadow(
-																																									color: Color(0x0D000000),
-																																									blurRadius: 2,
-																																									offset: Offset(0, 1),
-																																								),
-																																							],
-																																						),
-																																						padding: const EdgeInsets.only( left: 16, right: 16),
-																																						width: double.infinity,
-																																						child: Column(
-																																							crossAxisAlignment: CrossAxisAlignment.start,
-																																							children: [
-																																								IntrinsicHeight(
-																																									child: Container(
-																																										margin: const EdgeInsets.only( top: 32),
-																																										width: double.infinity,
-																																										child: Column(
-																																											crossAxisAlignment: CrossAxisAlignment.start,
-																																											children: [
-																																												IntrinsicHeight(
-																																													child: Container(
-																																														padding: const EdgeInsets.symmetric(vertical: 3),
-																																														width: double.infinity,
-																																														child: Column(
-																																															children: [
-																																																Text(
-																																																	"3rd Place",
-																																																	style: TextStyle(
-																																																		color: Color(0xFF4B5563),
-																																																		fontSize: 12,
-																																																	),
-																																																),
-																																															]
-																																														),
-																																													),
-																																												),
-																																												IntrinsicHeight(
-																																													child: Container(
-																																														padding: const EdgeInsets.symmetric(vertical: 4),
-																																														width: double.infinity,
-																																														child: Column(
-																																															children: [
-																																																Text(
-																																																	"Mike R.",
-																																																	style: TextStyle(
-																																																		color: Color(0xFF000000),
-																																																		fontSize: 16,
-																																																	),
-																																																),
-																																															]
-																																														),
-																																													),
-																																												),
-																																												IntrinsicHeight(
-																																													child: Container(
-																																														padding: const EdgeInsets.symmetric(vertical: 4),
-																																														width: double.infinity,
-																																														child: Column(
-																																															children: [
-																																																Text(
-																																																	"2,654 pts",
-																																																	style: TextStyle(
-																																																		color: Color(0xFF2563EB),
-																																																		fontSize: 14,
-																																																	),
-																																																),
-																																															]
-																																														),
-																																													),
-																																												),
-																																											]
-																																										),
-																																									),
-																																								),
-																																							]
-																																						),
-																																					),
-																																				),
-																																			]
-																																		),
-																																		Positioned(
-																																			top: 0,
-																																			left: 41,
-																																			width: 32,
-																																			height: 32,
-																																			child: Container(
-																																				decoration: BoxDecoration(
-																																					borderRadius: BorderRadius.circular(9999),
-																																				),
-																																				transform: Matrix4.translationValues(0, -16, 0),
-																																				width: 32,
-																																				height: 32,
-																																				child: ClipRRect(
-																																					borderRadius: BorderRadius.circular(9999),
-																																					child: Image.network(
-																																						"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/481f34c3-d201-40e8-b2d5-8e7fc4b52d67",
-																																						fit: BoxFit.fill,
-																																					)
-																																				)
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																													]
-																												),
-																											),
-																										),
-																										IntrinsicHeight(
-																											child: Container(
-																												decoration: BoxDecoration(
-																													borderRadius: BorderRadius.circular(12),
-																													color: Color(0xFFFFFFFF),
-																													boxShadow: [
-																														BoxShadow(
-																															color: Color(0x0D000000),
-																															blurRadius: 2,
-																															offset: Offset(0, 1),
-																														),
-																													],
-																												),
-																												padding: const EdgeInsets.all(16),
-																												margin: const EdgeInsets.only( bottom: 12),
-																												width: double.infinity,
-																												child: Row(
-																													children: [
-																														IntrinsicHeight(
-																															child: Container(
-																																margin: const EdgeInsets.only( right: 153),
-																																width: 157,
-																																child: Row(
-																																	mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																																	children: [
-																																		Text(
-																																			"4",
-																																			style: TextStyle(
-																																				color: Color(0xFF6B7280),
-																																				fontSize: 16,
-																																			),
-																																		),
-																																		Container(
-																																			decoration: BoxDecoration(
-																																				borderRadius: BorderRadius.circular(9999),
-																																			),
-																																			width: 40,
-																																			height: 40,
-																																			child: ClipRRect(
-																																				borderRadius: BorderRadius.circular(9999),
-																																				child: Image.network(
-																																					"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a6e19e06-bb6f-40c2-8cf8-2c911a62ea61",
-																																					fit: BoxFit.fill,
-																																				)
-																																			)
-																																		),
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				width: 82,
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.only( top: 5, bottom: 5, left: 1, right: 1),
-																																								width: double.infinity,
-																																								child: Column(
-																																									crossAxisAlignment: CrossAxisAlignment.start,
-																																									children: [
-																																										Text(
-																																											"Emma W.",
-																																											style: TextStyle(
-																																												color: Color(0xFF000000),
-																																												fontSize: 16,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.symmetric(vertical: 4),
-																																								width: double.infinity,
-																																								child: Column(
-																																									children: [
-																																										Text(
-																																											"2,345 points",
-																																											style: TextStyle(
-																																												color: Color(0xFF6B7280),
-																																												fontSize: 14,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																														Container(
-																															width: 16,
-																															height: 16,
-																															child: Image.network(
-																																"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/32698d30-0ae2-41fa-961f-cc3f7b562d04",
-																																fit: BoxFit.fill,
-																															)
-																														),
-																													]
-																												),
-																											),
-																										),
-																										IntrinsicHeight(
-																											child: Container(
-																												decoration: BoxDecoration(
-																													borderRadius: BorderRadius.circular(12),
-																													color: Color(0xFFFFFFFF),
-																													boxShadow: [
-																														BoxShadow(
-																															color: Color(0x0D000000),
-																															blurRadius: 2,
-																															offset: Offset(0, 1),
-																														),
-																													],
-																												),
-																												padding: const EdgeInsets.all(16),
-																												margin: const EdgeInsets.only( bottom: 12),
-																												width: double.infinity,
-																												child: Row(
-																													children: [
-																														IntrinsicHeight(
-																															child: Container(
-																																padding: const EdgeInsets.only( left: 1, right: 1),
-																																margin: const EdgeInsets.only( right: 158),
-																																width: 152,
-																																child: Row(
-																																	mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																																	children: [
-																																		Text(
-																																			"5",
-																																			style: TextStyle(
-																																				color: Color(0xFF6B7280),
-																																				fontSize: 16,
-																																			),
-																																		),
-																																		Container(
-																																			decoration: BoxDecoration(
-																																				borderRadius: BorderRadius.circular(9999),
-																																			),
-																																			width: 40,
-																																			height: 40,
-																																			child: ClipRRect(
-																																				borderRadius: BorderRadius.circular(9999),
-																																				child: Image.network(
-																																					"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4dbb08c3-df9a-4bf3-9967-f283aa511bd5",
-																																					fit: BoxFit.fill,
-																																				)
-																																			)
-																																		),
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				width: 79,
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.only( top: 5, bottom: 5, left: 1, right: 1),
-																																								width: double.infinity,
-																																								child: Column(
-																																									crossAxisAlignment: CrossAxisAlignment.start,
-																																									children: [
-																																										Text(
-																																											"Alex M.",
-																																											style: TextStyle(
-																																												color: Color(0xFF000000),
-																																												fontSize: 16,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.symmetric(vertical: 4),
-																																								width: double.infinity,
-																																								child: Column(
-																																									children: [
-																																										Text(
-																																											"2,100 points",
-																																											style: TextStyle(
-																																												color: Color(0xFF6B7280),
-																																												fontSize: 14,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																														Container(
-																															width: 16,
-																															height: 16,
-																															child: Image.network(
-																																"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ae51c24c-bed7-4d2b-b3ce-7e069bbac4f6",
-																																fit: BoxFit.fill,
-																															)
-																														),
-																													]
-																												),
-																											),
-																										),
-																										IntrinsicHeight(
-																											child: Container(
-																												decoration: BoxDecoration(
-																													borderRadius: BorderRadius.circular(12),
-																													color: Color(0xFFFFFFFF),
-																													boxShadow: [
-																														BoxShadow(
-																															color: Color(0x0D000000),
-																															blurRadius: 2,
-																															offset: Offset(0, 1),
-																														),
-																													],
-																												),
-																												padding: const EdgeInsets.all(16),
-																												margin: const EdgeInsets.only( bottom: 12),
-																												width: double.infinity,
-																												child: Row(
-																													children: [
-																														IntrinsicHeight(
-																															child: Container(
-																																margin: const EdgeInsets.only( right: 154),
-																																width: 154,
-																																child: Row(
-																																	mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																																	children: [
-																																		Text(
-																																			"6",
-																																			style: TextStyle(
-																																				color: Color(0xFF6B7280),
-																																				fontSize: 16,
-																																			),
-																																		),
-																																		Container(
-																																			decoration: BoxDecoration(
-																																				borderRadius: BorderRadius.circular(9999),
-																																			),
-																																			width: 40,
-																																			height: 40,
-																																			child: ClipRRect(
-																																				borderRadius: BorderRadius.circular(9999),
-																																				child: Image.network(
-																																					"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0b88e548-1a02-41ad-9e09-6909094d0069",
-																																					fit: BoxFit.fill,
-																																				)
-																																			)
-																																		),
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				width: 80,
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.only( top: 4, bottom: 4, left: 1, right: 1),
-																																								width: double.infinity,
-																																								child: Column(
-																																									crossAxisAlignment: CrossAxisAlignment.start,
-																																									children: [
-																																										Text(
-																																											"Lisa P.",
-																																											style: TextStyle(
-																																												color: Color(0xFF000000),
-																																												fontSize: 16,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.symmetric(vertical: 4),
-																																								width: double.infinity,
-																																								child: Column(
-																																									crossAxisAlignment: CrossAxisAlignment.start,
-																																									children: [
-																																										Container(
-																																											width: double.infinity,
-																																											child: Text(
-																																												"1,890 points",
-																																												style: TextStyle(
-																																													color: Color(0xFF6B7280),
-																																													fontSize: 14,
-																																												),
-																																												textAlign: TextAlign.center,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																														Container(
-																															width: 18,
-																															height: 16,
-																															child: Image.network(
-																																"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/abafd90e-a5e7-415e-af46-022ea6ddf8cc",
-																																fit: BoxFit.fill,
-																															)
-																														),
-																													]
-																												),
-																											),
-																										),
-																										IntrinsicHeight(
-																											child: Container(
-																												decoration: BoxDecoration(
-																													borderRadius: BorderRadius.circular(12),
-																													color: Color(0xFFFFFFFF),
-																													boxShadow: [
-																														BoxShadow(
-																															color: Color(0x0D000000),
-																															blurRadius: 2,
-																															offset: Offset(0, 1),
-																														),
-																													],
-																												),
-																												padding: const EdgeInsets.all(16),
-																												width: double.infinity,
-																												child: Row(
-																													children: [
-																														IntrinsicHeight(
-																															child: Container(
-																																margin: const EdgeInsets.only( right: 156),
-																																width: 152,
-																																child: Row(
-																																	mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																																	children: [
-																																		Text(
-																																			"7",
-																																			style: TextStyle(
-																																				color: Color(0xFF6B7280),
-																																				fontSize: 16,
-																																			),
-																																		),
-																																		Container(
-																																			decoration: BoxDecoration(
-																																				borderRadius: BorderRadius.circular(9999),
-																																			),
-																																			width: 40,
-																																			height: 40,
-																																			child: ClipRRect(
-																																				borderRadius: BorderRadius.circular(9999),
-																																				child: Image.network(
-																																					"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/44c2b8eb-bc53-4a8d-ae1c-a1ad001a486a",
-																																					fit: BoxFit.fill,
-																																				)
-																																			)
-																																		),
-																																		IntrinsicHeight(
-																																			child: Container(
-																																				width: 79,
-																																				child: Column(
-																																					crossAxisAlignment: CrossAxisAlignment.start,
-																																					children: [
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.symmetric(vertical: 5),
-																																								width: double.infinity,
-																																								child: Column(
-																																									crossAxisAlignment: CrossAxisAlignment.start,
-																																									children: [
-																																										Text(
-																																											"Tom H.",
-																																											style: TextStyle(
-																																												color: Color(0xFF000000),
-																																												fontSize: 16,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																						IntrinsicHeight(
-																																							child: Container(
-																																								padding: const EdgeInsets.symmetric(vertical: 4),
-																																								width: double.infinity,
-																																								child: Column(
-																																									crossAxisAlignment: CrossAxisAlignment.start,
-																																									children: [
-																																										Container(
-																																											width: double.infinity,
-																																											child: Text(
-																																												"1,654 points",
-																																												style: TextStyle(
-																																													color: Color(0xFF6B7280),
-																																													fontSize: 14,
-																																												),
-																																												textAlign: TextAlign.center,
-																																											),
-																																										),
-																																									]
-																																								),
-																																							),
-																																						),
-																																					]
-																																				),
-																																			),
-																																		),
-																																	]
-																																),
-																															),
-																														),
-																														Container(
-																															width: 18,
-																															height: 16,
-																															child: Image.network(
-																																"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4d256b32-aa2a-489c-97f8-4299d696aac0",
-																																fit: BoxFit.fill,
-																															)
-																														),
-																													]
-																												),
-																											),
-																										),
-																									]
-																								),
-																							),
-																						),
-																					]
-																				),
-																				Positioned(
-																					top: 0,
-																					left: 175,
-																					width: 40,
-																					height: 40,
-																					child: Container(
-																						decoration: BoxDecoration(
-																							borderRadius: BorderRadius.circular(9999),
-																						),
-																						transform: Matrix4.translationValues(0, -16, 0),
-																						width: 40,
-																						height: 40,
-																						child: ClipRRect(
-																							borderRadius: BorderRadius.circular(9999),
-																							child: Image.network(
-																								"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/22a0dde7-7dd1-4d75-a223-c50fd3088dbf",
-																								fit: BoxFit.fill,
-																							)
-																						)
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-															]
-														),
-													),
-												),
-											],
-										)
-									),
-								),
-							),
-						],
-					),
-				),
-			),
-		);
-	}
+
+class SocialRankingPage extends StatelessWidget {
+  final List<RankingUser> topUsers = [
+    RankingUser('Sarah K.', 2890, 'assets/sarah.jpg', 2),
+    RankingUser('John D.', 3456, 'assets/john.jpg', 1),
+    RankingUser('Mike R.', 2654, 'assets/mike.jpg', 3),
+  ];
+
+  final List<RankingUser> otherUsers = [
+    RankingUser('Emma W.', 2345, 'assets/emma.jpg', 4),
+    RankingUser('Alex M.', 2100, 'assets/alex.jpg', 5),
+    RankingUser('Lisa P.', 1890, 'assets/lisa.jpg', 6),
+    RankingUser('Tom H.', 1654, 'assets/tom.jpg', 7),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            const Text(
+              'Social Ranking',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 30),
+            _buildTopThree(),
+            const SizedBox(height: 20),
+            Expanded(child: _buildRankingList()),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTopThree() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          _buildPodiumItem(topUsers[0], 140), // 2nd
+          _buildPodiumItem(topUsers[1], 160), // 1st
+          _buildPodiumItem(topUsers[2], 120), // 3rd
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPodiumItem(RankingUser user, double height) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          width: 100,
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.purple.shade200),
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage(user.imageUrl),
+                radius: 28,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                user.name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                '${user.points} pts',
+                style: TextStyle(
+                  color: Colors.blue.shade400,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+        Container(
+          height: height,
+          width: 100,
+          decoration: BoxDecoration(
+            color: Colors.purple.shade100,
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRankingList() {
+    return ListView.separated(
+      padding: const EdgeInsets.all(16),
+      itemCount: otherUsers.length,
+      separatorBuilder: (context, index) => const Divider(height: 32),
+      itemBuilder: (context, index) {
+        final user = otherUsers[index];
+        return Row(
+          children: [
+            SizedBox(
+              width: 30,
+              child: Text(
+                '${user.rank}',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            CircleAvatar(
+              backgroundImage: AssetImage(user.imageUrl),
+              radius: 24,
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    user.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    '${user.points} points',
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _getRankIcon(user.rank),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _getRankIcon(int rank) {
+    IconData icon;
+    Color color;
+    switch (rank) {
+      case 4:
+        icon = Icons.star;
+        color = Colors.amber;
+        break;
+      case 5:
+        icon = Icons.military_tech;
+        color = Colors.grey;
+        break;
+      case 6:
+        icon = Icons.emoji_events;
+        color = Colors.blue;
+        break;
+      default:
+        icon = Icons.stars;
+        color = Colors.purple;
+    }
+    return Icon(icon, color: color, size: 28);
+  }
+}
+
+class RankingUser {
+  final String name;
+  final int points;
+  final String imageUrl;
+  final int rank;
+
+  RankingUser(this.name, this.points, this.imageUrl, this.rank);
 }

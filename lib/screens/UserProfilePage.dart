@@ -1,936 +1,157 @@
 import 'package:flutter/material.dart';
-class UserProfilePage extends StatefulWidget {
-	const UserProfilePage({super.key});
-	@override
-		UserProfilePageState createState() => UserProfilePageState();
-	}
-class UserProfilePageState extends State<UserProfilePage> {
-	String textField1 = '';
-	String textField2 = '';
-	String textField3 = '';
-	String textField4 = '';
-	String textField5 = '';
-	String textField6 = '';
-	String textField7 = '';
-	String textField8 = '';
-	@override
-	Widget build(BuildContext context) {
-		return Scaffold(
-			body: SafeArea(
-				child: Container(
-					constraints: const BoxConstraints.expand(),
-					color: Color(0xFFFFFFFF),
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
-						children: [
-							Expanded(
-								child: Container(
-									decoration: BoxDecoration(
-										border: Border.all(
-											color: Color(0xFFCED4DA),
-											width: 2,
-										),
-										borderRadius: BorderRadius.circular(8),
-										color: Color(0xFFFFFFFF),
-									),
-									width: double.infinity,
-									height: double.infinity,
-									child: SingleChildScrollView(
-										child: Column(
-											crossAxisAlignment: CrossAxisAlignment.start,
-											children: [
-												IntrinsicHeight(
-													child: Container(
-														width: double.infinity,
-														child: Column(
-															crossAxisAlignment: CrossAxisAlignment.start,
-															children: [
-																IntrinsicHeight(
-																	child: Container(
-																		color: Color(0xFFFFFFFF),
-																		margin: const EdgeInsets.only( bottom: 15),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						padding: const EdgeInsets.only( top: 22, bottom: 22, left: 16, right: 16),
-																						width: double.infinity,
-																						child: Row(
-																							children: [
-																								Container(
-																									width: 17,
-																									height: 20,
-																									child: Image.network(
-																										"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2d90ed47-36b4-4ec4-902d-1f0916c7edad",
-																										fit: BoxFit.fill,
-																									)
-																								),
-																								Expanded(
-																									child: Container(
-																										width: double.infinity,
-																										child: SizedBox(),
-																									),
-																								),
-																								Container(
-																									margin: const EdgeInsets.only( right: 104),
-																									child: Text(
-																										"User Profile",
-																										style: TextStyle(
-																											color: Color(0xFF000000),
-																											fontSize: 18,
-																										),
-																									),
-																								),
-																								Container(
-																									width: 32,
-																									height: 1,
-																									child: SizedBox(),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		padding: const EdgeInsets.only( left: 131, right: 131),
-																		margin: const EdgeInsets.only( bottom: 32, left: 16, right: 16),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				Container(
-																					decoration: BoxDecoration(
-																						borderRadius: BorderRadius.circular(9999),
-																					),
-																					height: 96,
-																					width: double.infinity,
-																					child: ClipRRect(
-																						borderRadius: BorderRadius.circular(9999),
-																						child: Image.network(
-																							"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6bfd19cf-8081-4c79-a5cb-86008e00218c",
-																							fit: BoxFit.fill,
-																						)
-																					)
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		margin: const EdgeInsets.only( bottom: 23, left: 16, right: 16),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				IntrinsicHeight(
-																					child: Container(
-																						margin: const EdgeInsets.only( bottom: 24),
-																						width: double.infinity,
-																						child: Column(
-																							crossAxisAlignment: CrossAxisAlignment.start,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.symmetric(vertical: 1),
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicWidth(
-																													child: IntrinsicHeight(
-																														child: Container(
-																															padding: const EdgeInsets.only( top: 3, bottom: 3, left: 1, right: 1),
-																															margin: const EdgeInsets.only( bottom: 10),
-																															child: Column(
-																																crossAxisAlignment: CrossAxisAlignment.start,
-																																children: [
-																																	Text(
-																																		"Full Name",
-																																		style: TextStyle(
-																																			color: Color(0xFF374151),
-																																			fontSize: 14,
-																																		),
-																																	),
-																																]
-																															),
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														alignment: Alignment.center,
-																														decoration: BoxDecoration(
-																															border: Border.all(
-																																color: Color(0xFFE5E7EB),
-																																width: 1,
-																															),
-																															borderRadius: BorderRadius.circular(8),
-																															color: Color(0xFFFFFFFF),
-																														),
-																														padding: const EdgeInsets.only( top: 19, bottom: 19, left: 17, right: 17),
-																														width: double.infinity,
-																														child: TextField(
-																															style: TextStyle(
-																																color: Color(0xFFADAEBC),
-																																fontSize: 16,
-																															),
-																															onChanged: (value) { 
-																																setState(() { textField1 = value; });
-																															},
-																															decoration: InputDecoration(
-																																hintText: "Enter your name",
-																																isDense: true,
-																																contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																border: InputBorder.none,
-																															),
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Row(
-																											mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 1),
-																														width: 171,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																IntrinsicHeight(
-																																	child: Container(
-																																		padding: const EdgeInsets.symmetric(vertical: 3),
-																																		margin: const EdgeInsets.only( bottom: 10),
-																																		width: double.infinity,
-																																		child: Column(
-																																			crossAxisAlignment: CrossAxisAlignment.start,
-																																			children: [
-																																				Container(
-																																					width: double.infinity,
-																																					child: Text(
-																																						"Age",
-																																						style: TextStyle(
-																																							color: Color(0xFF374151),
-																																							fontSize: 14,
-																																						),
-																																						textAlign: TextAlign.center,
-																																					),
-																																				),
-																																			]
-																																		),
-																																	),
-																																),
-																																IntrinsicHeight(
-																																	child: Container(
-																																		alignment: Alignment.center,
-																																		decoration: BoxDecoration(
-																																			border: Border.all(
-																																				color: Color(0xFFE5E7EB),
-																																				width: 1,
-																																			),
-																																			borderRadius: BorderRadius.circular(8),
-																																			color: Color(0xFFFFFFFF),
-																																		),
-																																		padding: const EdgeInsets.only( top: 19, bottom: 19, left: 16, right: 16),
-																																		width: double.infinity,
-																																		child: TextField(
-																																			style: TextStyle(
-																																				color: Color(0xFFADAEBC),
-																																				fontSize: 16,
-																																			),
-																																			onChanged: (value) { 
-																																				setState(() { textField2 = value; });
-																																			},
-																																			decoration: InputDecoration(
-																																				hintText: "Years",
-																																				isDense: true,
-																																				contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																				border: InputBorder.none,
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 1),
-																														width: 171,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																IntrinsicHeight(
-																																	child: Container(
-																																		padding: const EdgeInsets.symmetric(vertical: 3),
-																																		margin: const EdgeInsets.only( bottom: 10),
-																																		width: double.infinity,
-																																		child: Column(
-																																			crossAxisAlignment: CrossAxisAlignment.start,
-																																			children: [
-																																				Container(
-																																					width: double.infinity,
-																																					child: Text(
-																																						"Gender",
-																																						style: TextStyle(
-																																							color: Color(0xFF374151),
-																																							fontSize: 14,
-																																						),
-																																						textAlign: TextAlign.center,
-																																					),
-																																				),
-																																			]
-																																		),
-																																	),
-																																),
-																																IntrinsicHeight(
-																																	child: Container(
-																																		decoration: BoxDecoration(
-																																			border: Border.all(
-																																				color: Color(0xFFE5E7EB),
-																																				width: 1,
-																																			),
-																																			borderRadius: BorderRadius.circular(8),
-																																			color: Color(0xFFFFFFFF),
-																																		),
-																																		padding: const EdgeInsets.only( left: 12, right: 12),
-																																		width: double.infinity,
-																																		child: Row(
-																																			children: [
-																																				Expanded(
-																																					child: IntrinsicHeight(
-																																						child: Container(
-																																							alignment: Alignment.center,
-																																							padding: const EdgeInsets.symmetric(vertical: 18),
-																																							margin: const EdgeInsets.only( right: 4),
-																																							width: double.infinity,
-																																							child: TextField(
-																																								style: TextStyle(
-																																									color: Color(0xFF000000),
-																																									fontSize: 16,
-																																								),
-																																								onChanged: (value) { 
-																																									setState(() { textField3 = value; });
-																																								},
-																																								decoration: InputDecoration(
-																																									hintText: "Select",
-																																									isDense: true,
-																																									contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																									border: InputBorder.none,
-																																								),
-																																							),
-																																						),
-																																					),
-																																				),
-																																				Container(
-																																					width: 16,
-																																					height: 9,
-																																					child: Image.network(
-																																						"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/595f0ab4-8cf8-43e6-a85c-ea24b3c76a88",
-																																						fit: BoxFit.fill,
-																																					)
-																																				),
-																																			]
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Row(
-																											mainAxisAlignment: MainAxisAlignment.spaceBetween,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 1),
-																														width: 171,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																IntrinsicHeight(
-																																	child: Container(
-																																		padding: const EdgeInsets.symmetric(vertical: 3),
-																																		margin: const EdgeInsets.only( bottom: 10),
-																																		width: double.infinity,
-																																		child: Column(
-																																			crossAxisAlignment: CrossAxisAlignment.start,
-																																			children: [
-																																				Container(
-																																					width: double.infinity,
-																																					child: Text(
-																																						"Weight",
-																																						style: TextStyle(
-																																							color: Color(0xFF374151),
-																																							fontSize: 14,
-																																						),
-																																						textAlign: TextAlign.center,
-																																					),
-																																				),
-																																			]
-																																		),
-																																	),
-																																),
-																																IntrinsicHeight(
-																																	child: Container(
-																																		alignment: Alignment.center,
-																																		decoration: BoxDecoration(
-																																			border: Border.all(
-																																				color: Color(0xFFE5E7EB),
-																																				width: 1,
-																																			),
-																																			borderRadius: BorderRadius.circular(8),
-																																			color: Color(0xFFFFFFFF),
-																																		),
-																																		padding: const EdgeInsets.only( top: 19, bottom: 19, left: 17, right: 17),
-																																		width: double.infinity,
-																																		child: TextField(
-																																			style: TextStyle(
-																																				color: Color(0xFFADAEBC),
-																																				fontSize: 16,
-																																			),
-																																			onChanged: (value) { 
-																																				setState(() { textField4 = value; });
-																																			},
-																																			decoration: InputDecoration(
-																																				hintText: "kg",
-																																				isDense: true,
-																																				contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																				border: InputBorder.none,
-																																			),
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 1),
-																														width: 171,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																IntrinsicWidth(
-																																	child: IntrinsicHeight(
-																																		child: Container(
-																																			padding: const EdgeInsets.only( top: 3, bottom: 3, left: 1, right: 1),
-																																			margin: const EdgeInsets.only( bottom: 10),
-																																			child: Column(
-																																				crossAxisAlignment: CrossAxisAlignment.start,
-																																				children: [
-																																					Text(
-																																						"Height",
-																																						style: TextStyle(
-																																							color: Color(0xFF374151),
-																																							fontSize: 14,
-																																						),
-																																					),
-																																				]
-																																			),
-																																		),
-																																	),
-																																),
-																																IntrinsicHeight(
-																																	child: Container(
-																																		decoration: BoxDecoration(
-																																			border: Border.all(
-																																				color: Color(0xFFE5E7EB),
-																																				width: 1,
-																																			),
-																																			borderRadius: BorderRadius.circular(8),
-																																			color: Color(0xFFFFFFFF),
-																																		),
-																																		padding: const EdgeInsets.only( top: 22, bottom: 12, left: 16, right: 16),
-																																		width: double.infinity,
-																																		child: Column(
-																																			crossAxisAlignment: CrossAxisAlignment.start,
-																																			children: [
-																																				Text(
-																																					"cm",
-																																					style: TextStyle(
-																																						color: Color(0xFFADAEBC),
-																																						fontSize: 16,
-																																					),
-																																				),
-																																			]
-																																		),
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.symmetric(vertical: 1),
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 3),
-																														margin: const EdgeInsets.only( bottom: 10),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Container(
-																																	width: double.infinity,
-																																	child: Text(
-																																		"Activity Level",
-																																		style: TextStyle(
-																																			color: Color(0xFF374151),
-																																			fontSize: 14,
-																																		),
-																																		textAlign: TextAlign.center,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														decoration: BoxDecoration(
-																															border: Border.all(
-																																color: Color(0xFFE5E7EB),
-																																width: 1,
-																															),
-																															borderRadius: BorderRadius.circular(8),
-																															color: Color(0xFFFFFFFF),
-																														),
-																														padding: const EdgeInsets.only( left: 12, right: 12),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Expanded(
-																																	child: IntrinsicHeight(
-																																		child: Container(
-																																			alignment: Alignment.center,
-																																			padding: const EdgeInsets.symmetric(vertical: 18),
-																																			margin: const EdgeInsets.only( right: 4),
-																																			width: double.infinity,
-																																			child: TextField(
-																																				style: TextStyle(
-																																					color: Color(0xFF000000),
-																																					fontSize: 16,
-																																				),
-																																				onChanged: (value) { 
-																																					setState(() { textField5 = value; });
-																																				},
-																																				decoration: InputDecoration(
-																																					hintText: "Select activity level",
-																																					isDense: true,
-																																					contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																					border: InputBorder.none,
-																																				),
-																																			),
-																																		),
-																																	),
-																																),
-																																Container(
-																																	width: 16,
-																																	height: 9,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/db158b7e-e758-4783-a1df-b5f2988b2c59",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.symmetric(vertical: 1),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicWidth(
-																													child: IntrinsicHeight(
-																														child: Container(
-																															padding: const EdgeInsets.only( top: 3, bottom: 3, left: 1, right: 1),
-																															margin: const EdgeInsets.only( bottom: 10),
-																															child: Column(
-																																crossAxisAlignment: CrossAxisAlignment.start,
-																																children: [
-																																	Text(
-																																		"Fitness Goal",
-																																		style: TextStyle(
-																																			color: Color(0xFF374151),
-																																			fontSize: 14,
-																																		),
-																																	),
-																																]
-																															),
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														decoration: BoxDecoration(
-																															border: Border.all(
-																																color: Color(0xFFE5E7EB),
-																																width: 1,
-																															),
-																															borderRadius: BorderRadius.circular(8),
-																															color: Color(0xFFFFFFFF),
-																														),
-																														padding: const EdgeInsets.only( left: 12, right: 12),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Expanded(
-																																	child: IntrinsicHeight(
-																																		child: Container(
-																																			alignment: Alignment.center,
-																																			padding: const EdgeInsets.symmetric(vertical: 18),
-																																			margin: const EdgeInsets.only( right: 4),
-																																			width: double.infinity,
-																																			child: TextField(
-																																				style: TextStyle(
-																																					color: Color(0xFF000000),
-																																					fontSize: 16,
-																																				),
-																																				onChanged: (value) { 
-																																					setState(() { textField6 = value; });
-																																				},
-																																				decoration: InputDecoration(
-																																					hintText: "Select your goal",
-																																					isDense: true,
-																																					contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																					border: InputBorder.none,
-																																				),
-																																			),
-																																		),
-																																	),
-																																),
-																																Container(
-																																	width: 16,
-																																	height: 9,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bb8e4fc6-1040-41d6-98d6-6052c0c8ab04",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																				IntrinsicHeight(
-																					child: Container(
-																						padding: const EdgeInsets.symmetric(vertical: 1),
-																						margin: const EdgeInsets.only( bottom: 24),
-																						width: double.infinity,
-																						child: Column(
-																							crossAxisAlignment: CrossAxisAlignment.start,
-																							children: [
-																								IntrinsicWidth(
-																									child: IntrinsicHeight(
-																										child: Container(
-																											padding: const EdgeInsets.only( top: 3, bottom: 3, left: 1, right: 1),
-																											margin: const EdgeInsets.only( bottom: 10),
-																											child: Column(
-																												crossAxisAlignment: CrossAxisAlignment.start,
-																												children: [
-																													Text(
-																														"Daily Meals",
-																														style: TextStyle(
-																															color: Color(0xFF374151),
-																															fontSize: 14,
-																														),
-																													),
-																												]
-																											),
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										alignment: Alignment.center,
-																										decoration: BoxDecoration(
-																											border: Border.all(
-																												color: Color(0xFFE5E7EB),
-																												width: 1,
-																											),
-																											borderRadius: BorderRadius.circular(8),
-																											color: Color(0xFFFFFFFF),
-																										),
-																										padding: const EdgeInsets.only( top: 18, bottom: 18, left: 17, right: 17),
-																										width: double.infinity,
-																										child: TextField(
-																											style: TextStyle(
-																												color: Color(0xFFADAEBC),
-																												fontSize: 16,
-																											),
-																											onChanged: (value) { 
-																												setState(() { textField7 = value; });
-																											},
-																											decoration: InputDecoration(
-																												hintText: "Number of meals per day",
-																												isDense: true,
-																												contentPadding: EdgeInsets.symmetric(vertical: 0),
-																												border: InputBorder.none,
-																											),
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																				IntrinsicHeight(
-																					child: Container(
-																						width: double.infinity,
-																						child: Column(
-																							crossAxisAlignment: CrossAxisAlignment.start,
-																							children: [
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.symmetric(vertical: 1),
-																										margin: const EdgeInsets.only( bottom: 16),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicWidth(
-																													child: IntrinsicHeight(
-																														child: Container(
-																															padding: const EdgeInsets.only( top: 3, bottom: 3, left: 1, right: 1),
-																															margin: const EdgeInsets.only( bottom: 10),
-																															child: Column(
-																																crossAxisAlignment: CrossAxisAlignment.start,
-																																children: [
-																																	Text(
-																																		"Dietary Preferences",
-																																		style: TextStyle(
-																																			color: Color(0xFF374151),
-																																			fontSize: 14,
-																																		),
-																																	),
-																																]
-																															),
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														decoration: BoxDecoration(
-																															border: Border.all(
-																																color: Color(0xFFE5E7EB),
-																																width: 1,
-																															),
-																															borderRadius: BorderRadius.circular(8),
-																															color: Color(0xFFFFFFFF),
-																														),
-																														padding: const EdgeInsets.only( left: 12, right: 12),
-																														width: double.infinity,
-																														child: Row(
-																															children: [
-																																Expanded(
-																																	child: IntrinsicHeight(
-																																		child: Container(
-																																			alignment: Alignment.center,
-																																			padding: const EdgeInsets.symmetric(vertical: 17),
-																																			margin: const EdgeInsets.only( right: 4),
-																																			width: double.infinity,
-																																			child: TextField(
-																																				style: TextStyle(
-																																					color: Color(0xFF000000),
-																																					fontSize: 16,
-																																				),
-																																				onChanged: (value) { 
-																																					setState(() { textField8 = value; });
-																																				},
-																																				decoration: InputDecoration(
-																																					hintText: "Select preference",
-																																					isDense: true,
-																																					contentPadding: EdgeInsets.symmetric(vertical: 0),
-																																					border: InputBorder.none,
-																																				),
-																																			),
-																																		),
-																																	),
-																																),
-																																Container(
-																																	width: 16,
-																																	height: 9,
-																																	child: Image.network(
-																																		"https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cda7dd5b-9c29-4088-b035-b1b760e62dac",
-																																		fit: BoxFit.fill,
-																																	)
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																								IntrinsicHeight(
-																									child: Container(
-																										padding: const EdgeInsets.symmetric(vertical: 1),
-																										width: double.infinity,
-																										child: Column(
-																											crossAxisAlignment: CrossAxisAlignment.start,
-																											children: [
-																												IntrinsicHeight(
-																													child: Container(
-																														padding: const EdgeInsets.symmetric(vertical: 3),
-																														margin: const EdgeInsets.only( bottom: 10),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Container(
-																																	width: double.infinity,
-																																	child: Text(
-																																		"Allergies",
-																																		style: TextStyle(
-																																			color: Color(0xFF374151),
-																																			fontSize: 14,
-																																		),
-																																		textAlign: TextAlign.center,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																												IntrinsicHeight(
-																													child: Container(
-																														decoration: BoxDecoration(
-																															border: Border.all(
-																																color: Color(0xFFE5E7EB),
-																																width: 1,
-																															),
-																															borderRadius: BorderRadius.circular(8),
-																															color: Color(0xFFFFFFFF),
-																														),
-																														padding: const EdgeInsets.only( top: 17, bottom: 65, left: 17, right: 17),
-																														width: double.infinity,
-																														child: Column(
-																															crossAxisAlignment: CrossAxisAlignment.start,
-																															children: [
-																																Text(
-																																	"List any food allergies...",
-																																	style: TextStyle(
-																																		color: Color(0xFFADAEBC),
-																																		fontSize: 16,
-																																	),
-																																),
-																															]
-																														),
-																													),
-																												),
-																											]
-																										),
-																									),
-																								),
-																							]
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-																IntrinsicHeight(
-																	child: Container(
-																		color: Color(0xFFFFFFFF),
-																		padding: const EdgeInsets.only( left: 16, right: 16),
-																		width: double.infinity,
-																		child: Column(
-																			crossAxisAlignment: CrossAxisAlignment.start,
-																			children: [
-																				InkWell(
-																					onTap: () { print('Pressed'); },
-																					child: IntrinsicHeight(
-																						child: Container(
-																							decoration: BoxDecoration(
-																								borderRadius: BorderRadius.circular(8),
-																								color: Color(0xFF3B82F6),
-																							),
-																							padding: const EdgeInsets.symmetric(vertical: 21),
-																							margin: const EdgeInsets.only( top: 17),
-																							width: double.infinity,
-																							child: Column(
-																								children: [
-																									Text(
-																										"Save Changes",
-																										style: TextStyle(
-																											color: Color(0xFFFFFFFF),
-																											fontSize: 16,
-																										),
-																									),
-																								]
-																							),
-																						),
-																					),
-																				),
-																			]
-																		),
-																	),
-																),
-															]
-														),
-													),
-												),
-											],
-										)
-									),
-								),
-							),
-						],
-					),
-				),
-			),
-		);
-	}
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:snap_meal/screens/SocialRankingPage.dart';
+
+class UserProfilePage extends StatelessWidget {
+  const UserProfilePage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text("Profile"),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: [
+            const ProfilePic(),
+            const SizedBox(height: 20),
+            ProfileMenu(
+              text: "My Account",
+              icon: "assets/images/profile.png",
+              press: () => {},
+            ),
+            ProfileMenu(
+              text: "Social Ranking",
+              icon: "assets/icons/Bell.svg",
+              press: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SocialRankingPage()));
+              },
+            ),
+            ProfileMenu(
+              text: "Settings",
+              icon: "assets/icons/Settings.svg",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Help Center",
+              icon: "assets/icons/Question mark.svg",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Log Out",
+              icon: "assets/icons/Log out.svg",
+              press: () {},
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
+
+class ProfilePic extends StatelessWidget {
+  const ProfilePic({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 115,
+      width: 115,
+      child: Stack(
+        fit: StackFit.expand,
+        clipBehavior: Clip.none,
+        children: [
+          const CircleAvatar(
+            backgroundImage: AssetImage("assets/images/profile.png"),
+          ),
+          Positioned(
+            right: -16,
+            bottom: 0,
+            child: SizedBox(
+              height: 46,
+              width: 46,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    side: const BorderSide(color: Colors.white),
+                  ),
+                  backgroundColor: const Color(0xFFF5F6F9),
+                ),
+                onPressed: () {},
+                child: SvgPicture.string(cameraIcon),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ProfileMenu extends StatelessWidget {
+  const ProfileMenu({
+    Key? key,
+    required this.text,
+    required this.icon,
+    this.press,
+  }) : super(key: key);
+
+  final String text, icon;
+  final VoidCallback? press;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: const Color(0xFFFF7643),
+          padding: const EdgeInsets.all(20),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          backgroundColor: const Color(0xFFF5F6F9),
+        ),
+        onPressed: press,
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              icon,
+              colorFilter:
+                  const ColorFilter.mode(Color(0xFFFF7643), BlendMode.srcIn),
+              width: 22,
+            ),
+            const SizedBox(width: 20),
+            Expanded(
+              child: Text(
+                text,
+                style: const TextStyle(
+                  color: Color(0xFF757575),
+                ),
+              ),
+            ),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xFF757575),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+const cameraIcon =
+    '''<svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 12.0152C8.49151 12.0152 7.26415 10.8137 7.26415 9.33902C7.26415 7.86342 8.49151 6.6619 10 6.6619C11.5085 6.6619 12.7358 7.86342 12.7358 9.33902C12.7358 10.8137 11.5085 12.0152 10 12.0152ZM10 5.55543C7.86698 5.55543 6.13208 7.25251 6.13208 9.33902C6.13208 11.4246 7.86698 13.1217 10 13.1217C12.133 13.1217 13.8679 11.4246 13.8679 9.33902C13.8679 7.25251 12.133 5.55543 10 5.55543ZM18.8679 13.3967C18.8679 14.2226 18.1811 14.8935 17.3368 14.8935H2.66321C1.81887 14.8935 1.13208 14.2226 1.13208 13.3967V5.42346C1.13208 4.59845 1.81887 3.92664 2.66321 3.92664H4.75C5.42453 3.92664 6.03396 3.50952 6.26604 2.88753L6.81321 1.41746C6.88113 1.23198 7.06415 1.10739 7.26604 1.10739H12.734C12.9358 1.10739 13.1189 1.23198 13.1877 1.41839L13.734 2.88845C13.966 3.50952 14.5755 3.92664 15.25 3.92664H17.3368C18.1811 3.92664 18.8679 4.59845 18.8679 5.42346V13.3967ZM17.3368 2.82016H15.25C15.0491 2.82016 14.867 2.69466 14.7972 2.50917L14.2519 1.04003C14.0217 0.418041 13.4113 0 12.734 0H7.26604C6.58868 0 5.9783 0.418041 5.74906 1.0391L5.20283 2.50825C5.13302 2.69466 4.95094 2.82016 4.75 2.82016H2.66321C1.19434 2.82016 0 3.98846 0 5.42346V13.3967C0 14.8326 1.19434 16 2.66321 16H17.3368C18.8057 16 20 14.8326 20 13.3967V5.42346C20 3.98846 18.8057 2.82016 17.3368 2.82016Z" fill="#757575"/>
+</svg>
+''';

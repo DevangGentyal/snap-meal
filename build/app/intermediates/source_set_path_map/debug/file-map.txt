@@ -1,35 +1,47 @@
-com.example.snap_meal.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-0 C:\Users\Darshan\.gradle\caches\transforms-3\03aed728b7b013fdb0ee78eeb01c4f70\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
-com.example.snap_meal.app-core-runtime-2.2.0-1 C:\Users\Darshan\.gradle\caches\transforms-3\059cceda2ceccaee2d220c95320313d5\transformed\core-runtime-2.2.0\res
-com.example.snap_meal.app-jetified-annotation-experimental-1.4.1-2 C:\Users\Darshan\.gradle\caches\transforms-3\10f9c032a87222f3f1a825913a31035e\transformed\jetified-annotation-experimental-1.4.1\res
-com.example.snap_meal.app-jetified-camera-core-1.4.1-3 C:\Users\Darshan\.gradle\caches\transforms-3\16977e0527d7b3b9f64bc43550103b64\transformed\jetified-camera-core-1.4.1\res
-com.example.snap_meal.app-jetified-lifecycle-livedata-core-ktx-2.7.0-4 C:\Users\Darshan\.gradle\caches\transforms-3\170cd53763ba8f7adb4146db3d69b874\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
-com.example.snap_meal.app-jetified-savedstate-1.2.1-5 C:\Users\Darshan\.gradle\caches\transforms-3\2c51cff48c4133d7aa1fd8f39564f9fb\transformed\jetified-savedstate-1.2.1\res
-com.example.snap_meal.app-jetified-profileinstaller-1.3.1-6 C:\Users\Darshan\.gradle\caches\transforms-3\3a651e584a887aa677778d47c9be7a5d\transformed\jetified-profileinstaller-1.3.1\res
-com.example.snap_meal.app-jetified-window-1.2.0-7 C:\Users\Darshan\.gradle\caches\transforms-3\49ca8dca74d3fdc122073b7a5974c5d0\transformed\jetified-window-1.2.0\res
-com.example.snap_meal.app-jetified-core-ktx-1.13.1-8 C:\Users\Darshan\.gradle\caches\transforms-3\50387cd88c023d005c13721cd1e42893\transformed\jetified-core-ktx-1.13.1\res
-com.example.snap_meal.app-jetified-window-java-1.2.0-9 C:\Users\Darshan\.gradle\caches\transforms-3\59bb600599ffc39d52050250ec56e1ed\transformed\jetified-window-java-1.2.0\res
-com.example.snap_meal.app-lifecycle-livedata-core-2.7.0-10 C:\Users\Darshan\.gradle\caches\transforms-3\65ce53a4ddfdb59a5b397e30d838cf99\transformed\lifecycle-livedata-core-2.7.0\res
-com.example.snap_meal.app-jetified-camera-video-1.4.1-11 C:\Users\Darshan\.gradle\caches\transforms-3\6b81c1d90773111314ec8464f887af2a\transformed\jetified-camera-video-1.4.1\res
-com.example.snap_meal.app-fragment-1.7.1-12 C:\Users\Darshan\.gradle\caches\transforms-3\7799b48b7fd3b8774825c296dd579627\transformed\fragment-1.7.1\res
-com.example.snap_meal.app-jetified-tracing-1.2.0-13 C:\Users\Darshan\.gradle\caches\transforms-3\830f0e2b5814c757e69ceb8a857fc725\transformed\jetified-tracing-1.2.0\res
-com.example.snap_meal.app-jetified-camera-lifecycle-1.4.1-14 C:\Users\Darshan\.gradle\caches\transforms-3\947ac123204e9283c41823e6530c275f\transformed\jetified-camera-lifecycle-1.4.1\res
-com.example.snap_meal.app-jetified-activity-1.9.3-15 C:\Users\Darshan\.gradle\caches\transforms-3\94c6d77f77750301b6efb276d024604e\transformed\jetified-activity-1.9.3\res
-com.example.snap_meal.app-core-1.13.1-16 C:\Users\Darshan\.gradle\caches\transforms-3\9560b4392b8a1575165d2e7541c36546\transformed\core-1.13.1\res
-com.example.snap_meal.app-lifecycle-viewmodel-2.7.0-17 C:\Users\Darshan\.gradle\caches\transforms-3\ac4d71d3da5bf20d2759902ba132196e\transformed\lifecycle-viewmodel-2.7.0\res
-com.example.snap_meal.app-lifecycle-livedata-2.7.0-18 C:\Users\Darshan\.gradle\caches\transforms-3\acc71736c9cd2e1ac61f7931b10b068a\transformed\lifecycle-livedata-2.7.0\res
-com.example.snap_meal.app-lifecycle-runtime-2.7.0-19 C:\Users\Darshan\.gradle\caches\transforms-3\b2a4352c1156d2493282fb6c6534b9de\transformed\lifecycle-runtime-2.7.0\res
-com.example.snap_meal.app-jetified-camera-camera2-1.4.1-20 C:\Users\Darshan\.gradle\caches\transforms-3\bf48260fdaeace50d95d1fefbab5e072\transformed\jetified-camera-camera2-1.4.1\res
-com.example.snap_meal.app-jetified-core-1.0.0-21 C:\Users\Darshan\.gradle\caches\transforms-3\c31a4bb5a15a2ee7a96dbe06c89e85f5\transformed\jetified-core-1.0.0\res
-com.example.snap_meal.app-jetified-lifecycle-process-2.7.0-22 C:\Users\Darshan\.gradle\caches\transforms-3\dbde9cdc77876e4df7bbc93ff1556b43\transformed\jetified-lifecycle-process-2.7.0\res
-com.example.snap_meal.app-jetified-tracing-ktx-1.2.0-23 C:\Users\Darshan\.gradle\caches\transforms-3\dedaa2400c03337c7f71a6fc6ee58c01\transformed\jetified-tracing-ktx-1.2.0\res
-com.example.snap_meal.app-jetified-startup-runtime-1.1.1-24 C:\Users\Darshan\.gradle\caches\transforms-3\fabdcf8916c57220c7a394d04ce23100\transformed\jetified-startup-runtime-1.1.1\res
-com.example.snap_meal.app-debug-25 D:\Darshan Studies\Projects\snap_meal\android\app\src\debug\res
-com.example.snap_meal.app-main-26 D:\Darshan Studies\Projects\snap_meal\android\app\src\main\res
-com.example.snap_meal.app-pngs-27 D:\Darshan Studies\Projects\snap_meal\build\app\generated\res\pngs\debug
-com.example.snap_meal.app-resValues-28 D:\Darshan Studies\Projects\snap_meal\build\app\generated\res\resValues\debug
-com.example.snap_meal.app-packageDebugResources-29 D:\Darshan Studies\Projects\snap_meal\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.snap_meal.app-packageDebugResources-30 D:\Darshan Studies\Projects\snap_meal\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.snap_meal.app-merged_res-31 D:\Darshan Studies\Projects\snap_meal\build\app\intermediates\merged_res\debug
-com.example.snap_meal.app-packaged_res-32 D:\Darshan Studies\Projects\snap_meal\build\camera_android_camerax\intermediates\packaged_res\debug
-com.example.snap_meal.app-packaged_res-33 D:\Darshan Studies\Projects\snap_meal\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
-com.example.snap_meal.app-packaged_res-34 D:\Darshan Studies\Projects\snap_meal\build\image_picker_android\intermediates\packaged_res\debug
+com.example.snap_meal.app-jetified-play-services-auth-20.7.0-0 C:\Users\Darshan\.gradle\caches\transforms-3\0060f8bcc07c9407379d98d6f5723ca2\transformed\jetified-play-services-auth-20.7.0\res
+com.example.snap_meal.app-jetified-core-1.0.0-1 C:\Users\Darshan\.gradle\caches\transforms-3\0675c763b99e3f1a43f336e2ba1dc174\transformed\jetified-core-1.0.0\res
+com.example.snap_meal.app-jetified-profileinstaller-1.3.1-2 C:\Users\Darshan\.gradle\caches\transforms-3\08e88112e74acd64cc3eccbfb451b04e\transformed\jetified-profileinstaller-1.3.1\res
+com.example.snap_meal.app-jetified-startup-runtime-1.1.1-3 C:\Users\Darshan\.gradle\caches\transforms-3\09f83ddb926858276dbd5f031fb20fda\transformed\jetified-startup-runtime-1.1.1\res
+com.example.snap_meal.app-jetified-camera-core-1.4.1-4 C:\Users\Darshan\.gradle\caches\transforms-3\308a6fe73b4d2bfeb778215f313d03fe\transformed\jetified-camera-core-1.4.1\res
+com.example.snap_meal.app-lifecycle-livedata-core-2.7.0-5 C:\Users\Darshan\.gradle\caches\transforms-3\36ab559479bdba40b6c025bc774046e9\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.snap_meal.app-core-1.13.1-6 C:\Users\Darshan\.gradle\caches\transforms-3\3e4fa42964ec6369b3a52ce840a46646\transformed\core-1.13.1\res
+com.example.snap_meal.app-jetified-tracing-ktx-1.2.0-7 C:\Users\Darshan\.gradle\caches\transforms-3\4336a5d455a1b7d276ade52ddf4b5df2\transformed\jetified-tracing-ktx-1.2.0\res
+com.example.snap_meal.app-jetified-camera-lifecycle-1.4.1-8 C:\Users\Darshan\.gradle\caches\transforms-3\50d809a78bdb51ad61cf5b49e2b3a105\transformed\jetified-camera-lifecycle-1.4.1\res
+com.example.snap_meal.app-jetified-savedstate-1.2.1-9 C:\Users\Darshan\.gradle\caches\transforms-3\573b3154c010498cfb932455457f17b3\transformed\jetified-savedstate-1.2.1\res
+com.example.snap_meal.app-jetified-play-services-base-18.0.1-10 C:\Users\Darshan\.gradle\caches\transforms-3\5c354eff26465da94d2c995ebbc7f3dc\transformed\jetified-play-services-base-18.0.1\res
+com.example.snap_meal.app-lifecycle-viewmodel-2.7.0-11 C:\Users\Darshan\.gradle\caches\transforms-3\657460ca0ce534da3831d5b362a7bc70\transformed\lifecycle-viewmodel-2.7.0\res
+com.example.snap_meal.app-jetified-camera-camera2-1.4.1-12 C:\Users\Darshan\.gradle\caches\transforms-3\6a2704d14176c3324947720e4f9afdda\transformed\jetified-camera-camera2-1.4.1\res
+com.example.snap_meal.app-jetified-tracing-1.2.0-13 C:\Users\Darshan\.gradle\caches\transforms-3\7004af989d66b990979b64df73988dda\transformed\jetified-tracing-1.2.0\res
+com.example.snap_meal.app-jetified-core-ktx-1.13.1-14 C:\Users\Darshan\.gradle\caches\transforms-3\7ca62bcd51e788ec4b34c8a056154469\transformed\jetified-core-ktx-1.13.1\res
+com.example.snap_meal.app-lifecycle-livedata-2.7.0-15 C:\Users\Darshan\.gradle\caches\transforms-3\7d4aebb6cb741392f993832b9b79abe5\transformed\lifecycle-livedata-2.7.0\res
+com.example.snap_meal.app-jetified-play-services-basement-18.4.0-16 C:\Users\Darshan\.gradle\caches\transforms-3\814b5e239732735f2c6fd9e01cbdb5de\transformed\jetified-play-services-basement-18.4.0\res
+com.example.snap_meal.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-17 C:\Users\Darshan\.gradle\caches\transforms-3\857bafdb8f6d292068f788eb6707aebe\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.snap_meal.app-jetified-activity-1.9.3-18 C:\Users\Darshan\.gradle\caches\transforms-3\8a7f7df162c876b05a4784759ddf5aa9\transformed\jetified-activity-1.9.3\res
+com.example.snap_meal.app-jetified-core-common-2.0.3-19 C:\Users\Darshan\.gradle\caches\transforms-3\8d546d29258797e40dff5c06901fb351\transformed\jetified-core-common-2.0.3\res
+com.example.snap_meal.app-jetified-credentials-play-services-auth-1.2.0-rc01-20 C:\Users\Darshan\.gradle\caches\transforms-3\8f88b8767b77b3146d52884588513967\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\res
+com.example.snap_meal.app-lifecycle-runtime-2.7.0-21 C:\Users\Darshan\.gradle\caches\transforms-3\961dd28d9293c223e24e5015230aa17b\transformed\lifecycle-runtime-2.7.0\res
+com.example.snap_meal.app-jetified-lifecycle-livedata-core-ktx-2.7.0-22 C:\Users\Darshan\.gradle\caches\transforms-3\a2a9967fc9779665701fdd0a8ab0d888\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.example.snap_meal.app-jetified-camera-video-1.4.1-23 C:\Users\Darshan\.gradle\caches\transforms-3\a3bfe9c880c810d1b19572a2ff3e8a66\transformed\jetified-camera-video-1.4.1\res
+com.example.snap_meal.app-jetified-annotation-experimental-1.4.1-24 C:\Users\Darshan\.gradle\caches\transforms-3\a8b36b6441d21a2e53898bb57a493139\transformed\jetified-annotation-experimental-1.4.1\res
+com.example.snap_meal.app-jetified-firebase-common-21.0.0-25 C:\Users\Darshan\.gradle\caches\transforms-3\adb3c7d5e12830590844eddff8d9c41e\transformed\jetified-firebase-common-21.0.0\res
+com.example.snap_meal.app-core-runtime-2.2.0-26 C:\Users\Darshan\.gradle\caches\transforms-3\b0282d1bfaedbc65145ac81306b9504e\transformed\core-runtime-2.2.0\res
+com.example.snap_meal.app-jetified-window-1.2.0-27 C:\Users\Darshan\.gradle\caches\transforms-3\d231944945e1b0e04c67346c100c28b6\transformed\jetified-window-1.2.0\res
+com.example.snap_meal.app-fragment-1.7.1-28 C:\Users\Darshan\.gradle\caches\transforms-3\d61035ff5af499cab2573d7bc0713eb6\transformed\fragment-1.7.1\res
+com.example.snap_meal.app-jetified-window-java-1.2.0-29 C:\Users\Darshan\.gradle\caches\transforms-3\d6873a96dc2a4a7b3d50642a47e7a0c0\transformed\jetified-window-java-1.2.0\res
+com.example.snap_meal.app-jetified-credentials-1.2.0-rc01-30 C:\Users\Darshan\.gradle\caches\transforms-3\e436391d4eabda697fceffbdd6837f99\transformed\jetified-credentials-1.2.0-rc01\res
+com.example.snap_meal.app-jetified-lifecycle-process-2.7.0-31 C:\Users\Darshan\.gradle\caches\transforms-3\e4c7bdc214a25f2cd6f36302b1dfcebb\transformed\jetified-lifecycle-process-2.7.0\res
+com.example.snap_meal.app-browser-1.4.0-32 C:\Users\Darshan\.gradle\caches\transforms-3\ea5a6b8d05c88ff4bf6e759ddab4a001\transformed\browser-1.4.0\res
+com.example.snap_meal.app-debug-33 D:\Darshan Studies\Projects\snap_meal\android\app\src\debug\res
+com.example.snap_meal.app-main-34 D:\Darshan Studies\Projects\snap_meal\android\app\src\main\res
+com.example.snap_meal.app-google-services-35 D:\Darshan Studies\Projects\snap_meal\build\app\generated\res\google-services\debug
+com.example.snap_meal.app-pngs-36 D:\Darshan Studies\Projects\snap_meal\build\app\generated\res\pngs\debug
+com.example.snap_meal.app-resValues-37 D:\Darshan Studies\Projects\snap_meal\build\app\generated\res\resValues\debug
+com.example.snap_meal.app-packageDebugResources-38 D:\Darshan Studies\Projects\snap_meal\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.snap_meal.app-packageDebugResources-39 D:\Darshan Studies\Projects\snap_meal\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.snap_meal.app-merged_res-40 D:\Darshan Studies\Projects\snap_meal\build\app\intermediates\merged_res\debug
+com.example.snap_meal.app-packaged_res-41 D:\Darshan Studies\Projects\snap_meal\build\camera_android_camerax\intermediates\packaged_res\debug
+com.example.snap_meal.app-packaged_res-42 D:\Darshan Studies\Projects\snap_meal\build\cloud_firestore\intermediates\packaged_res\debug
+com.example.snap_meal.app-packaged_res-43 D:\Darshan Studies\Projects\snap_meal\build\firebase_auth\intermediates\packaged_res\debug
+com.example.snap_meal.app-packaged_res-44 D:\Darshan Studies\Projects\snap_meal\build\firebase_core\intermediates\packaged_res\debug
+com.example.snap_meal.app-packaged_res-45 D:\Darshan Studies\Projects\snap_meal\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
+com.example.snap_meal.app-packaged_res-46 D:\Darshan Studies\Projects\snap_meal\build\image_picker_android\intermediates\packaged_res\debug
